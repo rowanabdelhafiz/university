@@ -53,7 +53,7 @@
                     <br>
                     <li class="nav-link">
                         <a href="#">
-                            <span class="text nav-text">Analytics</span>
+                            <span class="text nav-text">Change Leader code</span>
                         </a>
                     </li>
 
