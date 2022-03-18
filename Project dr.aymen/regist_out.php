@@ -1,5 +1,4 @@
 <?php
-    //extract($_REQUEST);
     extract($_POST);
     include"user_login_list.php";
     $pn=$list->head;
@@ -12,9 +11,11 @@
     $k=0;
     while($pn!=NULL)
 	{
+        echo $pn->name;
 		if($l1==$pn->name)
 		{
 			$k=1;
+            
             break;
 		}
 		$pn=$pn->next;
