@@ -31,50 +31,45 @@
         <div class="menu-bar">
             <div class="menu">
 
-                <li class="search-box">
-                    <i class='bx bx-search icon'></i>
-                    <input type="text" placeholder="Search...">
-                </li>
-
                 <ul class="menu-links">
                     <li class="nav-link">
                         <a href="#">
-                            <i class='bx bx-home-alt icon' ></i>
+                        <i>*</i>
                             <span class="text nav-text">Dashboard</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
                         <a href="#">
-                            <i class='bx bx-bar-chart-alt-2 icon' ></i>
+                            <i>*</i>
                             <span class="text nav-text">Revenue</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
                         <a href="#">
-                            <i class='bx bx-bell icon'></i>
+                        <i>*</i>
                             <span class="text nav-text">Notifications</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
                         <a href="#">
-                            <i class='bx bx-pie-chart-alt icon' ></i>
+                        <i>*</i>
                             <span class="text nav-text">Analytics</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
                         <a href="#">
-                            <i class='bx bx-heart icon' ></i>
+                        <i>*</i>
                             <span class="text nav-text">Likes</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
                         <a href="#">
-                            <i class='bx bx-wallet icon' ></i>
+                        <i>*</i>
                             <span class="text nav-text">Wallets</span>
                         </a>
                     </li>
