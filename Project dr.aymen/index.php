@@ -23,7 +23,7 @@
 			<div class="input-group">
 				<button name="submit" class="btn">Login</button>
 			</div>
-			<p ><h2 class="login-register-text">Admin: <a href="forget_pass.php">Click Here</a></h2>.</p>
+			<p ><h2 class="login-register-text">leader: <a href="forget_pass.php">Click Here</a></h2>.</p>
 		</form>
 	</div>
 </body>
