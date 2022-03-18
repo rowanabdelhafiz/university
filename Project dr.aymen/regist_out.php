@@ -27,7 +27,7 @@
         {
              $list->get_usernameandpassword($username,$opassword);
              $file=fopen("form-save.txt","a");
-             fwrite($file, $username."~".$opassword);
+             fwrite($file,$Type."~".$username."~".$opassword);
              fwrite($file,"\n");
              fclose($file);
              header("location: Admin_page.php");

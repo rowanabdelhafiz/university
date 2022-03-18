@@ -46,7 +46,6 @@
                     <br>
                     <li class="nav-link">
                         <a href="#">
-
                             <span class="text nav-text" >Remove Officer</span>
                         </a>
                     </li>
@@ -54,18 +53,6 @@
                     <li class="nav-link">
                         <a href="#">
                             <span class="text nav-text">Change Leader code</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-link">
-                        <a href="#">
-                            <span class="text nav-text">Likes</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-link">
-                        <a href="#">
-                            <span class="text nav-text">Wallets</span>
                         </a>
                     </li>
 
@@ -98,7 +85,7 @@
     </nav>
 
     <section class="home">
-        <div class="text">Leader Feature</div>
+        <div class="text">Dashboard Sidebar</div>
     </section>
 
     <script>
