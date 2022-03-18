@@ -25,9 +25,9 @@
     {
         if($opassword==$Cpassword)
         {
-             $list->get_usernameandpassword($username,$opassword);
-             $file=fopen("form-save.txt","a");
-             fwrite($file,$Type."~".$username."~".$opassword);
+             $list->get_usernameandpassword($username,$opassword,$Type);
+             $file=fopen("$Type.txt","a");
+             fwrite($file,$username."~".$opassword);
              fwrite($file,"\n");
              fclose($file);
              header("location: Admin_page.php");

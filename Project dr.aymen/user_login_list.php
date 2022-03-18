@@ -1,18 +1,21 @@
 <?php
 include"main_linkedlist.php";
+include"function.php";
 class readnode extends Node
 {
     public $name;
     public $password;
+    public $type;
 }
 class user extends main_linkedlist
 {
-    public function get_usernameandpassword($user_name,$user_password)
+    public function get_usernameandpassword($user_name,$user_password,$user_type)
     {
         $pnn=new readNode();
         $this->insert($pnn);
         $pnn->name=$user_name;
         $pnn->password=$user_password;
+        $pnn->type=$user_type;
     }
     public function display()
     {
@@ -26,14 +29,12 @@ class user extends main_linkedlist
     }
 }
 $list=new user();
-$file = fopen("form-save.txt", "r");
-    if ($file) {
-        while (!feof($file)) {
-            $line=fgets($file);
-            $line2=fgets($file);
-            $list->get_usernameandpassword($line,$line2);
-        }
-    fclose($file);
-    }
+$count=0;
+text_line_count($count,$Usertype);
+for($i=1;$i<=$count;$i++)
+{
+    add_userlist($list,$i);
+}
+
 
 ?>
