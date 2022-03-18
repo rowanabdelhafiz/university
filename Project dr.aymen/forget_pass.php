@@ -18,7 +18,7 @@
 				<input type="password" placeholder="leader code" name="leader_code" >
 			</div>
             <div class="input-group">
-                <a style="text-decoration:none" name="submit" href="Admin_page.php" class="btn"> Login </a>
+                <a style="text-decoration:none" name="submit" href="new_pass.php" class="btn"> Login </a>
 			</div>
 			<p class="login-register-text">Return to login : <a href="index.php">Login Here</a>.</p>
 		</form>

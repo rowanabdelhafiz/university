@@ -30,7 +30,7 @@
              fwrite($file, $username ."\n");
              fwrite($file, $opassword ."\n");
              fclose($file);
-             header("location: index.php");
+             header("location: Admin_page.php");
         }
         else
         {

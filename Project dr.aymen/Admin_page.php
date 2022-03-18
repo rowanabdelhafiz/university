@@ -33,43 +33,38 @@
 
                 <ul class="menu-links">
                     <li class="nav-link">
-                        <a href="#">
-                        <i>*</i>
-                            <span class="text nav-text">Dashboard</span>
+                        <a href="register.php">
+                            <span class="text nav-text"> ADD Officer</span>
                         </a>
                     </li>
-
+                    <br>
                     <li class="nav-link">
                         <a href="#">
-                            <i>*</i>
-                            <span class="text nav-text">Revenue</span>
+                            <span class="text nav-text" align='center'> Update <br>Officer information</span>
                         </a>
                     </li>
-
+                    <br>
                     <li class="nav-link">
                         <a href="#">
-                        <i>*</i>
-                            <span class="text nav-text">Notifications</span>
+
+                            <span class="text nav-text" >Remove Officer</span>
                         </a>
                     </li>
-
+                    <br>
                     <li class="nav-link">
                         <a href="#">
-                        <i>*</i>
                             <span class="text nav-text">Analytics</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
                         <a href="#">
-                        <i>*</i>
                             <span class="text nav-text">Likes</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
                         <a href="#">
-                        <i>*</i>
                             <span class="text nav-text">Wallets</span>
                         </a>
                     </li>

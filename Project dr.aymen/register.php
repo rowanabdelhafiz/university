@@ -24,6 +24,12 @@
             <div class="input-group">
 				<input type="Password" placeholder="Confirm Password" name="Cpassword" required>
 			</div>
+			<select name="Type" class="input-group">
+    		<option value="volvo">Volvo</option>
+    		<option value="saab">Saab</option>
+    		<option value="opel">Opel</option>
+    		<option value="audi">Audi</option>
+  			</select>
 			<div class="input-group">
 				<button name="submit" class="btn">Register</button>
 			</div>
