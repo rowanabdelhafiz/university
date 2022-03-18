@@ -1,5 +1,5 @@
 <?php
-function add_userlist($list,$Type)
+function add_userlist(&$list,$Type)
 {
     $file = fopen("$Type.txt", "r");
     if ($file) {
@@ -13,7 +13,7 @@ function add_userlist($list,$Type)
     fclose($file);
     }
 }
-function text_line_count($count,$text)
+function text_line_count(&$count,$text)
 {
     $file = fopen("$text.txt", "r")or die("Unable to open file!");;
     if ($file) {

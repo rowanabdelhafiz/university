@@ -1,7 +1,6 @@
 <?php
 include"user_login_list.php";
-$pn=$list->head;
-echo $count;
+$pt=$list->head;
 while($pt!=NULL)
 {
     echo $pt->name;
