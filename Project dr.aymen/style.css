@@ -27,6 +27,15 @@ body {
     padding: 40px 30px;
 }
 
+.container-admin {
+    width: 2000px;
+    min-height: 979px;
+    background: rgba(247, 230, 230, 0.384);
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0,0,0,.3);
+    padding: 40px 30px;
+}
+
 .container .login-text {
     color: #111;
     font-weight: 500;
