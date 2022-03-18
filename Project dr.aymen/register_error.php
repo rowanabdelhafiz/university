@@ -25,7 +25,7 @@
             <div class="input-group">
 				<input type="Password" placeholder="Confirm Password" name="Cpassword" required>
 			</div>
-			<select name="Type" class="input-group">
+			<select name="Type" class="input-group" style="opacity: 0.5">
 			<option value="1">leader</option>
     		<option value="2">Death cases officer</option>
     		<option value="3">Compensation cases officer</option>
