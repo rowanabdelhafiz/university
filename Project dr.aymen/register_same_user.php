@@ -24,13 +24,13 @@
 				<input type="Password" placeholder="Confirm Password" name="Cpassword" required>
 			</div>
 			<select name="Type" class="input-group">
-			<option value="leader">leader</option>
-    		<option value="death cases officer">Death cases officer</option>
-    		<option value="Compensation cases officer">Compensation cases officer</option>
-			<option value="signature health officer">signature health officer</option>
-			<option value="Officer family court">Officer family court</option>
-			<option value="Officer's of economic courts experts">Officer's of economic courts experts</option>
-			<option value="Security officer">Security officer</option>
+			<option value="1">leader</option>
+    		<option value="2">Death cases officer</option>
+    		<option value="3">Compensation cases officer</option>
+			<option value="4">signature health officer</option>
+			<option value="5">Officer family court</option>
+			<option value="6">Officer's of economic courts experts</option>
+			<option value="7">Security officer</option>
   			</select>
 			<div class="input-group">
 				<button name="submit" class="btn">ADD</button>
