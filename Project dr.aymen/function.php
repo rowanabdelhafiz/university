@@ -6,9 +6,12 @@ function add_userlist(&$list,$Type)
         while (!feof($file)) {
             $linee=fgets($file);
             $ArrayResult = explode("~", $linee);
-            $line= $ArrayResult[0];
-            $line2= $ArrayResult[1];
-            $list->get_usernameandpassword($line,$line2,$Type);
+            if($linee)
+            {
+                $line= $ArrayResult[0];
+                $line2= $ArrayResult[1];
+                $list->get_usernameandpassword($line,$line2,$Type);
+            }   
         }
     fclose($file);
     }
