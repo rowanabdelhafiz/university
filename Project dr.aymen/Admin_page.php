@@ -15,10 +15,6 @@
     <nav class="sidebar close">
         <header>
             <div class="image-text">
-                <span class="image">
-                    
-                </span>
-
                 <div class="text logo-text">
                     <h1><span class="name">Leader</span></h1>
                     <span class="profession">Sections</span>
@@ -73,7 +69,7 @@
     </nav>
 
     <section class="home">
-        <div class="text">Dashboard Sidebar</div>
+        <div class="text">Leader Page</div>
     </section>
 
     <script>
