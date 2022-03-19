@@ -51,7 +51,7 @@
                     </li>
                     <br>
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="New-Leadercode.php">
                             <span class="text nav-text">Change Leader code</span>
                         </a>
                     </li>
