@@ -45,7 +45,7 @@
                     </li>
                     <br>
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="Remove-officer.php">
                             <span class="text nav-text" >Remove Officer</span>
                         </a>
                     </li>
