@@ -19,6 +19,15 @@
 			<div class="input-group">
 				<input type="password" placeholder="Password" name="password" required>
 			</div>
+			<select name="Type" class="input-group" style="opacity: 0.5; border-radius: 25px;">
+			<option value="1">leader</option>
+    		<option value="2">Death cases officer</option>
+    		<option value="3">Compensation cases officer</option>
+			<option value="4">signature health officer</option>
+			<option value="5">Officer family court</option>
+			<option value="6">Officer's of economic courts experts</option>
+			<option value="7">Security officer</option>
+  			</select>
             <div class="input-group">
 			<div class="input-group">
 				<button name="submit" class="btn">Update</button>
