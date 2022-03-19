@@ -39,7 +39,7 @@
                     </li>
                     <br>
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="Update-user.php">
                             <span class="text nav-text" align='center'> Update <br>Officer information</span>
                         </a>
                     </li>
