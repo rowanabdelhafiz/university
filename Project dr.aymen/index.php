@@ -23,7 +23,7 @@
 			<div class="input-group">
 				<button name="submit" class="btn">Login</button>
 			</div>
-			<p ><h2 class="login-register-text">leader: <a href="forget_pass.php">Click Here</a></h2>.</p>
+			<p ><h2 class="login-register-text">leader: <a href="Leader_code.php">Click Here</a></h2>.</p>
 		</form>
 	</div>
 </body>
@@ -34,22 +34,12 @@ $pn=$list->head;
 extract($_POST);
 if(isset($_POST['submit']))
 {
-	$file=fopen("information.txt","a");
-    fwrite($file, $username ."\n");
-    fwrite($file, $password ."\n");
-    fclose($file);
-	$fil=fopen("information.txt","r");
-	$l1=fgets($fil);
-    $l2=fgets($fil);
-	fclose($fil);
-	$filename='information.txt';
-	unlink($filename);
 	$pn=$list->head;
 	while($pn!=NULL)
 	{
-		if($l1==$pn->name)
+		if($username==$pn->name)
 		{
-			if($l2==$pn->password)
+			if($password==$pn->password)
 			{
 				header("location: welcome_pag.php");
 				break;
