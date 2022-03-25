@@ -27,4 +27,19 @@ function text_line_count(&$count,$text)
     fclose($file);
     }
 }
+function Check_login($pn,$username,$password,$type)
+{
+	while($pn!=NULL)
+	{
+		if($username==$pn->name)
+		{
+			if($password==$pn->password)
+			{
+				header("location: Admin_page.php");
+				break;
+			}
+		}
+		$pn=$pn->next;
+    }
+}
 ?>
