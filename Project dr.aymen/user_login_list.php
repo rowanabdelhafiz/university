@@ -10,14 +10,13 @@ class readnode extends Node
 }
 class user extends main_linkedlist
 {
-    public function get_usernameandpassword($user_name,$user_password,$user_type,$pagename)
+    public function get_usernameandpassword($user_name,$user_password,$user_type)
     {
         $pnn=new readNode();
         $this->insert($pnn);
         $pnn->name=$user_name;
         $pnn->password=$user_password;
         $pnn->type=$user_type;
-        $pnn->phppage=$pagename;
     }
     public function display()
     {

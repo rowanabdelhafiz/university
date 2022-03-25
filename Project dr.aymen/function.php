@@ -1,4 +1,5 @@
 <?php
+
 function add_userlist(&$list,$Type)
 {
     $file = fopen("$Type.txt", "r");
@@ -27,6 +28,23 @@ function text_line_count(&$count,$text)
     fclose($file);
     }
 }
+function login_page_name($number)
+{
+    $file = fopen("usertype.txt", "r")or die("Unable to open file!");;
+    if ($file) {
+        while (!feof($file)) {
+            $linee=fgets($file);
+            $ArrayResult = explode("~", $linee);
+            if($number==$ArrayResult[0])
+            {
+                $text=$ArrayResult[1];
+                $t=$text.".php";
+                return $t;
+            }
+        }
+    fclose($file);
+    }
+}
 function Check_login($pn,$username,$password,$type,$count)
 {
 	while($pn!=NULL)
@@ -39,10 +57,15 @@ function Check_login($pn,$username,$password,$type,$count)
                 {
                     if($i==$pn->type)
                     {
-                        header("location: Admin.php");
+                        $text=login_page_name($i);
+                        if($text)
+                        {
+                            header("location: $text");
+                            break;
+                        }
+                        
                     }
                 }
-				break;
 			}
 		}
 		$pn=$pn->next;
