@@ -24,7 +24,7 @@
 				<input type="Password" placeholder="Confirm Password" name="Cpassword" required>
 			</div>
 			<select name="Type" class="input-group" style="opacity: 0.5; border-radius: 25px;">
-			<option value="1">leader</option>
+			<option value="1">Admin</option>
     		<option value="2">Death cases officer</option>
     		<option value="3">Compensation cases officer</option>
 			<option value="4">signature health officer</option>

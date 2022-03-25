@@ -18,7 +18,7 @@
         {
              $list->get_usernameandpassword($username,$opassword,$Type);
              $file=fopen("$Type.txt","a");
-             fwrite($file,$username."~".$opassword);
+             fwrite($file,$username."~".$opassword."~".$Type);
              fwrite($file,"\n");
              fclose($file);
              header("location: Admin_page.php");

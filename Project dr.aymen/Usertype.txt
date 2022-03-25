@@ -1,4 +1,4 @@
-1~leader
+1~Admin
 2~Death cases officer
 3~Compensation cases officer
 4~signature health officer

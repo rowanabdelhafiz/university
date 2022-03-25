@@ -46,15 +46,8 @@
                         </a>
                     </li>
                     <br>
-                    <li class="nav-link">
-                        <a href="New-Leadercode.php">
-                            <span class="text nav-text">Change Leader code</span>
-                        </a>
-                    </li>
-
                 </ul>
             </div>
-
             <div class="bottom-content">
                 <li class="">
                     <a href="index.php">
