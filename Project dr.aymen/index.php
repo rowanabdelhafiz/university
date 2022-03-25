@@ -43,18 +43,6 @@ $pn=$list->head;
 extract($_POST);
 if(isset($_POST['submit']))
 {
-	//while($pn!=NULL)
-	//{
-	//	if($username==$pn->name)
-	//	{
-	//		if($password==$pn->password)
-	//		{
-	//			header("location: welcome_pag.php");
-	//			break;
-	//		}
-	//	}
-	//	$pn=$pn->next;
-	//}
 	Check_login($pn,$username,$password,$Type);
 }
 ?>

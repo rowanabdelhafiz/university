@@ -35,6 +35,7 @@ function Check_login($pn,$username,$password,$type)
 		{
 			if($password==$pn->password)
 			{
+                
 				header("location: Admin_page.php");
 				break;
 			}
