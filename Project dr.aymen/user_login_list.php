@@ -24,6 +24,7 @@ class user extends main_linkedlist
         {
             echo $pt->name;
             echo ($pt->password);
+            echo ($pt->type);
             $pt=$pt->next;
         }
     }

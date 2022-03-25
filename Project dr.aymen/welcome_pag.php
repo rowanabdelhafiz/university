@@ -5,6 +5,7 @@ while($pt!=NULL)
 {
     echo $pt->name;
     echo ($pt->password);
+    echo $pt->type;
     $pt=$pt->next;
 }
 ?>
