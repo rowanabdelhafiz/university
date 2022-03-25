@@ -3,6 +3,7 @@
     include"user_login_list.php";
     $pn=$list->head;
     $k=0;
+    $pagename=" ";
     while($pn!=NULL)
 	{
 		if($username==$pn->name)
@@ -16,7 +17,7 @@
     {
         if($opassword==$Cpassword)
         {
-             $list->get_usernameandpassword($username,$opassword,$Type);
+             $list->get_usernameandpassword($username,$opassword,$Type,$pagename);
              $file=fopen("$Type.txt","a");
              fwrite($file,$username."~".$opassword."~".$Type);
              fwrite($file,"\n");
