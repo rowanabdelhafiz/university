@@ -29,7 +29,7 @@
 			<div class="input-group">
 				<button name="submit" class="btn">Remove</button>
 				</div>
-				<a style="text-decoration:none" name="sub" href="Admin_page.php" class="btn"> Return </a>
+				<a style="text-decoration:none" name="sub" href="Admin.php" class="btn"> Return </a>
 			</div>
 		</form>
 		<br>

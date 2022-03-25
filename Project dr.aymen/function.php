@@ -27,7 +27,7 @@ function text_line_count(&$count,$text)
     fclose($file);
     }
 }
-function Check_login($pn,$username,$password,$type)
+function Check_login($pn,$username,$password,$type,$count)
 {
 	while($pn!=NULL)
 	{
@@ -35,8 +35,13 @@ function Check_login($pn,$username,$password,$type)
 		{
 			if($password==$pn->password)
 			{
-                
-				header("location: Admin_page.php");
+                for($i=1;$i<=$count;$i++)
+                {
+                    if($i==$pn->type)
+                    {
+                        header("location: Admin.php");
+                    }
+                }
 				break;
 			}
 		}

@@ -35,7 +35,7 @@
 			<div class="input-group">
 				<button name="submit" class="btn">ADD</button>
 			</div>
-			<p class="login-register-text">Main page  <a href="Admin_page.php">Click Here</a></p>
+			<p class="login-register-text">Main page  <a href="Admin.php">Click Here</a></p>
 		</form>
 	</div>
 </body>

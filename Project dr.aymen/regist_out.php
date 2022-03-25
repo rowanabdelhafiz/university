@@ -21,7 +21,7 @@
              fwrite($file,$username."~".$opassword."~".$Type);
              fwrite($file,"\n");
              fclose($file);
-             header("location: Admin_page.php");
+             header("location: Admin.php");
         }
         else
         {
