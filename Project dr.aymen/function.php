@@ -45,7 +45,7 @@ function login_page_name($number)
     fclose($file);
     }
 }
-function Check_login($pn,$username,$password,$type,$count)
+function Check_login($pn,$username,$password,$count)
 {
 	while($pn!=NULL)
 	{

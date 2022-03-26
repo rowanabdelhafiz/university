@@ -34,6 +34,6 @@ $pn=$list->head;
 extract($_POST);
 if(isset($_POST['submit']))
 {
-	Check_login($pn,$username,$password,$Type,$count);
+	Check_login($pn,$username,$password,$count);
 }
 ?>
