@@ -6,7 +6,6 @@ class readnode extends Node
     public $name;
     public $password;
     public $type;
-    public $phppage;
 }
 class user extends main_linkedlist
 {
