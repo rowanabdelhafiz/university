@@ -62,8 +62,7 @@ function Check_login($pn,$username,$password,$count)
                         {
                             header("location: $text");
                             break;
-                        }
-                        
+                        }                      
                     }
                 }
 			}

@@ -26,10 +26,10 @@
         }
         else
         {
-            header("location: register_error.php");   
+            header("location: register.php");   
         }
     }
     else{
-        header("location: register_same_user.php");
+        header("location: register.php");
     }
  ?>
