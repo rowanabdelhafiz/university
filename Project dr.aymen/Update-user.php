@@ -45,15 +45,6 @@ extract($_POST);
 $k=1;
 if(isset($_POST['submit']))
 {
-	/*$file=fopen("login_information.txt","a");
-    fwrite($file, $username ."\n");
-	fwrite($file, $password ."\n");
-    fclose($file);
-    $fil=fopen("login_information.txt","r");
-	$l1=fgets($fil);
-	$l2=fgets($fil);
-    fclose($fil);
-	*/
 	$h=0;
 	$old_type=$Type;
     while($pn!=NULL)
@@ -68,10 +59,6 @@ if(isset($_POST['submit']))
 		}
 		$pn=$pn->next;
 	}
-	/*
-    $filename='login_information.txt';
-	unlink($filename);
-	*/
 	if($h==1)
 	{
 		if($old_type==$Type)

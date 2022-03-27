@@ -28,7 +28,9 @@ class user extends main_linkedlist
             $pt=$pt->next;
         }
     }
+    
 }
+
 $list=new user();
 $count=0;
 $Usertype="Usertype";

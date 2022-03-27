@@ -23,7 +23,6 @@
 			<div class="input-group">
 				<button name="submit" class="btn">Login</button>
 			</div>
-			<p ><h2 class="login-register-text">leader: <a href="Leader_code.php">Click Here</a></h2>.</p>
 		</form>
 	</div>
 </body>

@@ -27,6 +27,8 @@ class Node{
           $prev=$this->head;
           while($ptrav!=NULL&&$prev!=NULL)
           {
+            if($ptrav==$data)
+           {
               if($this->head==$ptrav&&$this->tail==$ptrav)
               {
                   $this->head=NULL;
@@ -44,11 +46,9 @@ class Node{
               }
               else
               {
-                if($ptrav==$data)
-                {
                     $prev->next=$ptrav->next;
-                }
               }
+           }
               $prev=$ptrav;
               $ptrav=$ptrav->next;
           }
