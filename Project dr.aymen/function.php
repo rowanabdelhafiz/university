@@ -60,7 +60,7 @@ function Check_login($pn,$username,$password,$count)
                         $text=login_page_name($i);
                         if($text)
                         {
-                            header("location: $text");
+                            header("location: $text");   
                             break;
                         }                      
                     }
