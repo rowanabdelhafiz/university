@@ -70,4 +70,18 @@ function Check_login($pn,$username,$password,$count)
 		$pn=$pn->next;
     }
 }
+function update_employee($Type,$pn)
+{
+    $file=fopen($Type.".".'txt',"a");
+	while($pn!=NULL)
+	{
+		if($pn->type==$Type)
+		{
+			fwrite($file,$pn->name."~".$pn->password."~".$pn->type."~");
+    		fwrite($file,"\n");
+		}
+		$pn=$pn->next;
+	}
+	fclose($file);
+}
 ?>

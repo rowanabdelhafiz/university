@@ -45,7 +45,7 @@ extract($_POST);
 $k=1;
 if(isset($_POST['submit']))
 {
-	$file=fopen("login_information.txt","a");
+	/*$file=fopen("login_information.txt","a");
     fwrite($file, $username ."\n");
 	fwrite($file, $password ."\n");
     fclose($file);
@@ -53,32 +53,45 @@ if(isset($_POST['submit']))
 	$l1=fgets($fil);
 	$l2=fgets($fil);
     fclose($fil);
+	*/
 	$h=0;
+	$old_type=$Type;
     while($pn!=NULL)
 	{
-		if($l1==$pn->name)
+		if($username==$pn->name)
 		{
-			$pn->password=$l2;
+			$pn->password=$password;
+			$old_type=$pn->type;
+			$pn->type=$Type;
 			$h=1;
             break;
 		}
 		$pn=$pn->next;
 	}
+	/*
     $filename='login_information.txt';
 	unlink($filename);
+	*/
 	if($h==1)
 	{
-		$filenam='form-save.txt';
-		unlink($filenam);
-		$pn=$list->head;
-		$file=fopen("form-save.txt","a");
-		while($pn!=NULL)
+		if($old_type==$Type)
 		{
-        	fwrite($file, $pn->name);
-        	fwrite($file, $pn->password);
-			$pn=$pn->next;
+			$filenam=$Type.".".'txt';
+			unlink($filenam);
+			$pn=$list->head;
+			update_employee($Type,$pn);
 		}
-		fclose($file);
+		else
+		{
+			$filenam=$Type.".".'txt';
+			unlink($filenam);
+			$filename=$old_type.".".'txt';
+			unlink($filename);
+			$pn=$list->head;
+			update_employee($Type,$pn);
+			$pn=$list->head;
+			update_employee($old_type,$pn);
+		}
 		header("location: index.php");
 	}
 	else{
