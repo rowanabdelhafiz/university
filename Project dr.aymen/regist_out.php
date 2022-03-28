@@ -17,10 +17,11 @@
     {
         if($opassword==$Cpassword)
         {
+            $last_line=lastline($Type);
              $list->get_usernameandpassword($username,$opassword,$Type,$pagename);
              $file=fopen("$Type.txt","a");
-             fwrite($file,$username."~".$opassword."~".$Type."~");
-             fwrite($file,"\n");
+             fwrite($file,$last_line."~".$username."~".$opassword."~".$Type."~"."\n");
+             //fwrite($file,"\n");
              fclose($file);
              header("location: Admin.php");
         }

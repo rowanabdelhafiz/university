@@ -84,12 +84,31 @@ function update_employee($Type,$pn)
 	}
 	fclose($file);
 }
-function lastline($Type,$pn)
+function lastline($Type)
 {
-    $file = file($Type.".txt");
-    $file = array_reverse($file);
-    $linee=fgets($file);
-	fclose($file);
-    return $linee;
+    $lastine=null;
+    $count=0;
+    $file = fopen("$Type.txt", "r");
+    
+    if ($file) {
+        if(!fgets($file))
+        {
+            $last_id=$count;
+            $id_user=$Type."_".$last_id;
+            fclose($file);
+            return $id_user;
+        }
+        else
+        {
+            while (!feof($file)) {
+            $lastine=fgets($file);
+            $count++;
+            $last_id=$count;
+            $id_user=$Type."_".$last_id;
+            }
+        }
+        fclose($file);
+        return $id_user;
+     }
 }
 ?>
