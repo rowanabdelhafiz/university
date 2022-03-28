@@ -1,7 +1,11 @@
 <?php 
-$file = file("Usertype.txt");
-$file = array_reverse($file);
-foreach($file as $f){
-    echo $f."<br />";
+include"user_login_list.php";
+$pt=$list->head;
+while($pt!=NULL)
+{
+    echo $pt->name;
+    echo ($pt->password);
+    echo ($pt->type);
+    $pt=$pt->next;
 }
 ?>

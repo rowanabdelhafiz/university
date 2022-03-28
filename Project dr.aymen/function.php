@@ -1,25 +1,34 @@
 <?php
-
 function add_userlist(&$list,$Type)
 {
-    $file = fopen("$Type.txt", "r");
+    $file = fopen("$Type.txt", "r")or die("Unable to open file!");
     if ($file) {
-        while (!feof($file)) {
-            $linee=fgets($file);
-            $ArrayResult = explode("~", $linee);
-            if($linee)
-            {
-                $line= $ArrayResult[0];
-                $line2= $ArrayResult[1];
-                $list->get_usernameandpassword($line,$line2,$Type);
-            }   
+        if(!fgets($file))
+        {
+
         }
-    fclose($file);
+        else
+        {
+            fclose($file);
+            $file = fopen("$Type.txt", "r")or die("Unable to open file!");
+            while (!feof($file)) {
+                $linee=fgets($file);
+                $ArrayResult = explode("~", $linee);
+                if($linee)
+                {
+                    $line= $ArrayResult[1];
+                    $line2= $ArrayResult[2];
+                    $list->get_usernameandpassword($line,$line2,$Type);
+                }   
+            }
+        }
+        
+    fclose($file); 
     }
 }
 function text_line_count(&$count,$text)
 {
-    $file = fopen("$text.txt", "r")or die("Unable to open file!");;
+    $file = fopen("$text.txt", "r")or die("Unable to open file!");
     if ($file) {
         while (!feof($file)) {
             fgets($file);
@@ -47,6 +56,7 @@ function login_page_name($number)
 }
 function Check_login($pn,$username,$password,$count)
 {
+    //header("location: welcome.php");  
 	while($pn!=NULL)
 	{
 		if($username==$pn->name)
