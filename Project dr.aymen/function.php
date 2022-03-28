@@ -56,7 +56,7 @@ function login_page_name($number)
 }
 function Check_login($pn,$username,$password,$count)
 {
-    //header("location: welcome.php");  
+    header("location: welcome.php");  
 	while($pn!=NULL)
 	{
 		if($username==$pn->name)
