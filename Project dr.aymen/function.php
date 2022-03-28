@@ -84,4 +84,12 @@ function update_employee($Type,$pn)
 	}
 	fclose($file);
 }
+function lastline($Type,$pn)
+{
+    $file = file($Type.".txt");
+    $file = array_reverse($file);
+    $linee=fgets($file);
+	fclose($file);
+    return $linee;
+}
 ?>
