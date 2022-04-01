@@ -33,10 +33,6 @@ class user extends main_linkedlist
 
 $list=new user();
 $count=0;
-$Usertype="Usertype";
-text_line_count($count,$Usertype);
-for($i=1;$i<=$count;$i++)
-{
-    add_userlist($list,$i);
-}
+$User="user.txt";
+add_userlist($list,$User);
 ?>

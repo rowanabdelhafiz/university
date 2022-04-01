@@ -31,7 +31,7 @@
 include"user_login_list.php";
 $pn=$list->head;
 extract($_POST);
-$file = fopen("1.txt", "r");
+$file = fopen("user.txt", "r");
 $linee=fgets($file);
 if($linee==null)
 {

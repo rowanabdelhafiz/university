@@ -63,21 +63,17 @@ if(isset($_POST['submit']))
 	{
 		if($old_type==$Type)
 		{
-			$filenam=$Type.".".'txt';
+			$filenam='user.txt';
 			unlink($filenam);
 			$pn=$list->head;
 			update_employee($Type,$pn);
 		}
 		else
 		{
-			$filenam=$Type.".".'txt';
+			$filenam='user.txt';
 			unlink($filenam);
-			$filename=$old_type.".".'txt';
-			unlink($filename);
 			$pn=$list->head;
 			update_employee($Type,$pn);
-			$pn=$list->head;
-			update_employee($old_type,$pn);
 		}
 		header("location: index.php");
 	}

@@ -1,7 +1,6 @@
-1~Admin~
-2~Death cases officer~
-3~Compensation cases officer~
-4~signature health officer~
-5~Officer family court~
-6~Officer's of economic courts experts~
-7~Security officer~
+1~Admin~Admin.php~
+2~Dean of the College~Dean_of_the_College.php
+3~Student~Student.php~
+4~Guard~Guard.php~
+5~Doctor~Doctor.php~
+6~Secretary~Secretary.php~

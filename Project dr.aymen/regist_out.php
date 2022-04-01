@@ -19,7 +19,7 @@
         {
             $last_line=lastline($Type);
              $list->get_usernameandpassword($username,$opassword,$Type,$pagename);
-             $file=fopen("$Type.txt","a");
+             $file=fopen("user.txt","a");
              fwrite($file,$last_line."~".$username."~".$opassword."~".$Type."~"."\n");
              fclose($file);
              header("location: Admin.php");

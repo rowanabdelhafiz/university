@@ -1,7 +1,7 @@
 <?php
 function add_userlist(&$list,$Type)
 {
-    $file = fopen("$Type.txt", "r")or die("Unable to open file!");
+    $file = fopen("user.txt", "r")or die("Unable to open file!");
     if ($file) {
         if(!fgets($file))
         {
@@ -10,14 +10,14 @@ function add_userlist(&$list,$Type)
         else
         {
             fclose($file);
-            $file = fopen("$Type.txt", "r")or die("Unable to open file!");
+            $file = fopen("user.txt", "r")or die("Unable to open file!");
             while (!feof($file)) {
                 $linee=fgets($file);
                 $ArrayResult = explode("~", $linee);
                 if($linee)
                 {
-                    $line= $ArrayResult[1];
-                    $line2= $ArrayResult[2];
+                    $line= $ArrayResult[0];
+                    $line2= $ArrayResult[1];
                     $list->get_usernameandpassword($line,$line2,$Type);
                 }   
             }
@@ -48,33 +48,21 @@ function login_page_name($number)
             {
                 $text=$ArrayResult[1];
                 $t=$text.".php";
+                fclose($file);
                 return $t;
             }
         }
-    fclose($file);
     }
 }
 function Check_login($pn,$username,$password,$count)
-{
-    header("location: welcome.php");  
+{ 
 	while($pn!=NULL)
 	{
 		if($username==$pn->name)
 		{
 			if($password==$pn->password)
 			{
-                for($i=1;$i<=$count;$i++)
-                {
-                    if($i==$pn->type)
-                    {
-                        $text=login_page_name($i);
-                        if($text)
-                        {
-                            header("location: $text");   
-                            break;
-                        }                      
-                    }
-                }
+                header("location: admin.php");
 			}
 		}
 		$pn=$pn->next;
@@ -82,7 +70,7 @@ function Check_login($pn,$username,$password,$count)
 }
 function update_employee($Type,$pn)
 {
-    $file=fopen($Type.".".'txt',"a");
+    $file=fopen("user.txt","a");
 	while($pn!=NULL)
 	{
 		if($pn->type==$Type)
