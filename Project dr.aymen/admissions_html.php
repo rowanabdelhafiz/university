@@ -34,8 +34,13 @@
 			<option value="5">masscom</option>
 			<option value="6">bussiness</option>
             <option value="7">pharmacy</option>
-            <option value="7">art&design</option>
-            <option value="7">languages</option>
+            <option value="8">art&design</option>
+            <option value="9">languages</option>
+  			</select>
+              <select name="Type" class="input-group" style="opacity: 0.5; border-radius: 25px;">
+			<option value="1">Science</option>
+    		<option value="2">Mathematics</option>
+    		<option value="3">literary</option>
   			</select>
 			<div class="input-group">
 				<button name="submit" class="btn">Login</button>
