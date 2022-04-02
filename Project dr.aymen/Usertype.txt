@@ -1,6 +1,7 @@
 1~Admin~Admin.php~
-2~Dean of the College~Dean_of_the_College.php
-3~Student~Student.php~
-4~Guard~Guard.php~
-5~Doctor~Doctor.php~
-6~Secretary~Secretary.php~
+2~University's president~University's_president.php
+3~Dean of the College~Dean_of_the_College.php
+4~Student~Student.php~
+5~Guard~Guard.php~
+6~Doctor~Doctor.php~
+7~Secretary~Secretary.php~
