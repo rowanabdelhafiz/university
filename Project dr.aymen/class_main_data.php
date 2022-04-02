@@ -18,7 +18,7 @@ class ID
         }
     }
 }
-class Name
+class Name extends ID
 {
     protected $name=null;
     public function getName()
@@ -37,7 +37,7 @@ class Name
         }
     }
 }
-class User
+class User extends Name
 {
     protected $password=null;
     protected $phone_number=null;
@@ -89,7 +89,7 @@ class User
         }
     }
 }
-class email
+class email extends User
 {
     protected $email=null;
     public function getEmail()
