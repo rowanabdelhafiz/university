@@ -7,6 +7,7 @@ function id_calculate(&$count,$text)
             fgets($file);
             $count=$count+1;
         }
+    $count=$count+1;
     fclose($file);
     }
 }

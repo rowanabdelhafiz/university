@@ -5,7 +5,6 @@ $count=0;
 $text="user.txt";
 id_calculate($count,$text);
 $object =new Admissions();
-$count+=1;
 $object->$setid($count);
 
 
