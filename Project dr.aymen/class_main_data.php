@@ -42,7 +42,6 @@ class User extends Name
     protected $password=null;
     protected $phone_number=null;
     protected $date_of_birthday=null;
-
     public function getPassword()
     {
         if($this->password!=null)
