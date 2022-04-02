@@ -4,6 +4,7 @@ class Admissions extends user
 {
     protected $ScoreNeeded=-1;
     protected $faculity=null;
+    protected $type_Majoring_in_high_school=-1;
     public function getScoreNeeded()
     {
         if($this->setScoreNeeded!=-1)
@@ -20,7 +21,7 @@ class Admissions extends user
         }
         
     }
-    public function add_student($id,$mail,$name,$phone_number,$date_of_birthday)
+    public function add_student($id,$mail,$name,$phone_number,$date_of_birthday,$faculity)
     {
         $file=fopen("user.txt","a");
         $email=$mail."@hel.stu.eg";
@@ -29,5 +30,26 @@ class Admissions extends user
         fclose($file); 
     }
 
+    public function getFaculity()
+    {
+        return $this->faculity;
+    }
+    public function setFaculity($faculity)
+    {
+        $this->faculity = $faculity;
+
+        return $this;
+    }
+
+    public function getType_Majoring_in_high_school()
+    {
+        return $this->type_Majoring_in_high_school;
+    }
+    public function setType_Majoring_in_high_school($type_Majoring_in_high_school)
+    {
+        $this->type_Majoring_in_high_school = $type_Majoring_in_high_school;
+
+        return $this;
+    }
 }
 ?>
