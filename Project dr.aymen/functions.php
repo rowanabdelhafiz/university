@@ -11,7 +11,7 @@ function id_calculate(&$count,$text)
     fclose($file);
     }
 }
-function check_percentage()
+function check_percentage(&$line_per,&$line_maj)
 {
     $file = fopen("faculity.txt", "r")or die("Unable to open file!");
     while (!feof($file)) {
