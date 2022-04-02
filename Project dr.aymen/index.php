@@ -27,21 +27,3 @@
 	</div>
 </body>
 </html>
-<?php
-include"user_login_list.php";
-$pn=$list->head;
-extract($_POST);
-$file = fopen("user.txt", "r");
-$linee=fgets($file);
-if($linee==null)
-{
-	header("location: register.php");
-}
-else
-{
-	if(isset($_POST['submit']))
-	{
-		Check_login($pn,$username,$password,$count);
-	}
-}
-?>
