@@ -7,12 +7,12 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 	<link rel="stylesheet" type="text/css" href="">
-
+    
 	<title>Login Form</title>
 </head>
 <body>
 	<div class="container">
-		<form action="" method="POST" class="login-email">
+		<form action="accept_student.php" method="POST" class="login-email">
 			<p class="login-text" style="font-size: 2rem; font-weight: 800;">Add student</p>
 			<div class="input-group">
 				<input type="Username" placeholder="name" name="username" required>
