@@ -1,10 +1,10 @@
 <?php 
-class Admissions
+include_once("class_user.php");
+class Admissions extends user
 {
     protected $ScoreNeeded=-1;
     protected $moneyNeeded=-1;
     protected $date_of_add=-1;
-
 
     public function getScoreNeeded()
     {
@@ -13,7 +13,7 @@ class Admissions
             return $this->ScoreNeeded;
         }
     }
-    
+
     public function setScoreNeeded($ScoreNeeded)
     {
         if($ScoreNeeded==-1)
@@ -51,6 +51,13 @@ class Admissions
         $this->date_of_add = $date_of_add;
 
         return $this;
+    }
+    public function add_student($id,$mail,$name,$phone_number,$date_of_birthday)
+    {
+        $file=fopen("user.txt","a");
+        fwrite($file,$id."~".$mail."~".$name."~"$phone_number."~".$date_of_birthday."~"."3"."~");
+        fwrite($file,"\n");
+        fclose($file); 
     }
 }
 ?>
