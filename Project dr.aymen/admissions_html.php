@@ -17,15 +17,22 @@
 			<div class="input-group">
 				<input type="Username" placeholder="name" name="username" required>
 			</div>
+			<br>
+			<br>
             <div class="input-group">
 				<input type="email" placeholder="email" name="email" required>
 			</div>
+			<br>
+			<br>
 			<div class="input-group">
 				<input type="phone_number" placeholder="phone_number" name="phone_number" required>
 			</div>
+			<br>
+			<br>
             <div class="input-group">
 				<input type="date" placeholder="date of birth" name="date_of_birth" required>
 			</div>
+			<br>
             <select name="faculity" class="input-group" style="opacity: 0.5; border-radius: 25px;">
 			<option value="1">engineering</option>
     		<option value="2">computer science</option>
@@ -37,11 +44,15 @@
             <option value="8">art&design</option>
             <option value="9">languages</option>
   			</select>
+			  <br>
+			  <br>
               <select name="majour" class="input-group" style="opacity: 0.5; border-radius: 25px;">
 			<option value="1">Science</option>
     		<option value="2">Mathematics</option>
     		<option value="3">literary</option>
   			</select>
+			<br>
+			<br>
 			<div class="input-group">
 				<button name="submit" class="btn">add</button>
 			</div>
