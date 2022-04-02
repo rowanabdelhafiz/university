@@ -13,7 +13,7 @@
 <body>
 	<div class="container">
 		<form action="" method="POST" class="login-email">
-			<p class="login-text" style="font-size: 2rem; font-weight: 800;">Login</p>
+			<p class="login-text" style="font-size: 2rem; font-weight: 800;">Add student</p>
 			<div class="input-group">
 				<input type="Username" placeholder="name" name="username" required>
 			</div>
@@ -43,10 +43,9 @@
     		<option value="3">literary</option>
   			</select>
 			<div class="input-group">
-				<button name="submit" class="btn">Login</button>
+				<button name="submit" class="btn">add</button>
 			</div>
 		</form>
 	</div>
 </body>
 </html>
-//$id,$mail,$name,$phone_number,$date_of_birthday,$faculity
