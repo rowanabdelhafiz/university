@@ -13,6 +13,7 @@ class Admissions
             return $this->ScoreNeeded;
         }
     }
+    
     public function setScoreNeeded($ScoreNeeded)
     {
         if($ScoreNeeded==-1)
@@ -22,7 +23,6 @@ class Admissions
         }
         
     }
-
 
     public function getMoneyNeeded()
     {
@@ -53,6 +53,4 @@ class Admissions
         return $this;
     }
 }
-
-
 ?>

@@ -1,7 +1,12 @@
 <?php 
-class ID
+class user
 {
     protected $id=-1;
+    protected $name=null;
+    protected $password=null;
+    protected $phone_number=null;
+    protected $date_of_birthday=null;
+    protected $email=null;
     public function getId()
     {
         if($this->id>0)
@@ -17,10 +22,6 @@ class ID
             return $this;
         }
     }
-}
-class Name extends ID
-{
-    protected $name=null;
     public function getName()
     {
         if($this->name!=null)
@@ -36,12 +37,6 @@ class Name extends ID
             return $this;
         }
     }
-}
-class User extends Name
-{
-    protected $password=null;
-    protected $phone_number=null;
-    protected $date_of_birthday=null;
     public function getPassword()
     {
         if($this->password!=null)
@@ -87,10 +82,6 @@ class User extends Name
             return $this;
         }
     }
-}
-class email extends User
-{
-    protected $email=null;
     public function getEmail()
     {
         
@@ -108,11 +99,5 @@ class email extends User
         }
     }
 }
-
-
-
-
-
-
 
 ?>
