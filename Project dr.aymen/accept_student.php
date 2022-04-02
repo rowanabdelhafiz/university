@@ -14,4 +14,5 @@ $object->setpassword($password);
 $object->setDate_of_birthday($date_of_birth);
 $object->setFaculity($faculity);
 $object->setType_Majoring_in_high_school($majour);
+
 ?>
