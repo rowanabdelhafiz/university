@@ -18,19 +18,37 @@ class Secretary extends GuardSecretary
             }
         }
     }
-    public function UpdateStudent($id, $pos, $change)
+    public function UpdateStudent($id,$pos,$value)
     {
-        $file = fopen("user.txt","a+")or die("error");
+        $file = fopen("user.txt","r+")or die("error");
+        $file_copy = fopen("usercopy.txt","a")or die("error");
         while(!feof($file))
         {
             $line = fgets($file);
             $arrStudent = explode("~",$line);
-            if($arrStudent[0] == $id)
+            if($arrStudent[0] != $id)
             {
-                $arrStudent[$pos]=$change;
+                fwrite($file_copy,$arrStudent[0]."~".$arrStudent[1]."~".$arrStudent[2]."~".$arrStudent[3]."~".$arrStudent[4]."~".$arrStudent[5]."~".$arrStudent[6]."~"."3"."~"."/n");
+            }
+            else
+            {
+                $arrStudent[$pos]=$value;
+                fwrite($file_copy,$arrStudent[0]."~".$arrStudent[1]."~".$arrStudent[2]."~".$arrStudent[3]."~".$arrStudent[4]."~".$arrStudent[5]."~".$arrStudent[6]."~"."3"."~"."/n");
             }
         }
-    }
+        fclose($file);
+        fclose($file_copy);
+        $file = fopen("user.txt","a")or die("error");
+        $file_copy = fopen("usercopy.txt","r")or die("error");
+        while(!feof($file))
+        {
+            $line = fgets($file_copy);
+            $arrStudent = explode("~",$line);
+            fwrite($file,$arrStudent[0]."~".$arrStudent[1]."~".$arrStudent[2]."~".$arrStudent[3]."~".$arrStudent[4]."~".$arrStudent[5]."~".$arrStudent[6]."~"."3"."~"."/n");
+        }
+        fclose($file);
+        unlink($file_copy);
+     }
 
 
     public function DisplayStudents()
