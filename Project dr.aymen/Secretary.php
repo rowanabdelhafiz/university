@@ -3,6 +3,9 @@
 include_once("GuardSecretary.php");
 include_once("student.php");
 
+
+
+
 class Secretary extends GuardSecretary
 {
     public function SearchStudent($id)
@@ -18,17 +21,37 @@ class Secretary extends GuardSecretary
             }
         }
     }
+
+//$contents = file_get_contents("../Files/" . $FileName);
+//	$contents = str_replace($Old, $New, $contents);
+//	file_put_contents("../Files/" . $FileName, $contents)
+
     public function UpdateStudent($id,$pos,$value)
     {
-        $file = fopen("user.txt","r+")or die("error");
-        $file_copy = fopen("usercopy.txt","a")or die("error");
+        $file = fopen("user.txt","r")or die("error");
+        //$file_copy = fopen("usercopy.txt","a")or die("error");
         while(!feof($file))
         {
             $line = fgets($file);
             $arrStudent = explode("~",$line);
 
 
-            if($arrStudent[0] != $id)
+            if($arrStudent[0]==$id)
+            {
+                $arrStudent[$pos] = $value;
+
+                $newL="";
+                for($i=0;$i<count($arrStudent);$i++)
+                {
+                    $newL.=$arrStudent[$i]."~";
+                }
+                $newL.="\n";
+
+                $contents = file_get_contents("user.txt");
+            	$contents = str_replace($line, $newL, $contents);
+            	file_put_contents("user.txt", $contents);
+            }
+            /*if($arrStudent[0] != $id)
             {
                 fwrite($file_copy,$arrStudent[0]."~".$arrStudent[1]."~".$arrStudent[2]."~".$arrStudent[3]."~".$arrStudent[4]."~".$arrStudent[5]."~".$arrStudent[6]."~"."3"."~"."/n");
             }
@@ -36,12 +59,12 @@ class Secretary extends GuardSecretary
             {
                 $arrStudent[$pos]=$value;
                 fwrite($file_copy,$arrStudent[0]."~".$arrStudent[1]."~".$arrStudent[2]."~".$arrStudent[3]."~".$arrStudent[4]."~".$arrStudent[5]."~".$arrStudent[6]."~"."3"."~"."/n");
-            }
+            }*/
             
 
             
         }
-        fclose($file);
+        /*fclose($file);
         unlink($file);
         fclose($file_copy);
         $file = fopen("user.txt","a")or die("error");
@@ -54,9 +77,10 @@ class Secretary extends GuardSecretary
         }
         fclose($file);
         fclose($file_copy);
-        unlink($file_copy);
-     }
+        unlink($file_copy);*/
+    }
 
+    //public function s
 
     public function DisplayStudents()
     {
@@ -78,8 +102,6 @@ for($i = 0;$i<5;$i++)
 {
     echo $st[$i]."<br>";
 }
-
-
 
 
 ?>
