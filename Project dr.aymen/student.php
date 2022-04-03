@@ -76,7 +76,6 @@ class Student
         return $this->courses;
     }
 
-
     public function setCourses($courses)
     {
         $this->courses = $courses;
@@ -84,7 +83,4 @@ class Student
         return $this;
     }
 }
-
-
-
 ?>
