@@ -21,11 +21,11 @@ class Admissions extends user
         }
         
     }
-    public function add_student($id,$mail,$name,$phone_number,$date_of_birthday,$faculity)
+    public function add_student($id,$mail,$name,$password,$phone_number,$date_of_birthday,$faculity)
     {
         $file=fopen("user.txt","a");
         $email=$mail."@hel.stu.eg";
-        fwrite($file,$id."~".$email."~".$name."~".$phone_number."~".$date_of_birthday."~"."3"."~");
+        fwrite($file,$id."~".$email."~".$name."~".$password."~".$phone_number."~".$date_of_birthday."~".$faculity."~"."3"."~");
         fwrite($file,"\n");
         fclose($file); 
     }

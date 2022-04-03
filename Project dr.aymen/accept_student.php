@@ -9,12 +9,22 @@ $object =new Admissions();
 $object->setid($count);
 $object->setname($username);
 $object->setemail($email);
+$object->setPhone_number($phone_number);
 $password="ihf".$phone_number;
 $object->setpassword($password);
 $object->setDate_of_birthday($date_of_birth);
 $object->setFaculity($faculity);
 $object->setType_Majoring_in_high_school($majour);
 $line_per;
-$line_maj;
-check_percentage($line_per,$line_maj);
+check_percentage($line_per,$faculity);
+$accepted=0;
+//////////
+if($line_per>=$per)
+{
+    $accepted=1;
+}
+if($accepted==1)
+{
+    $object->add_student($object->getId(),$object->getEmail(),$object->getName(),$object->getPassword(),$object->getPhone_number(),$object->getDate_of_birthday(),$faculity);
+}
 ?>
