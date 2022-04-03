@@ -34,8 +34,6 @@ class Secretary extends GuardSecretary
         {
             $line = fgets($file);
             $arrStudent = explode("~",$line);
-<<<<<<< HEAD
-
 
             if($arrStudent[0]==$id)
             {
@@ -53,51 +51,14 @@ class Secretary extends GuardSecretary
             	file_put_contents("user.txt", $contents);
             }
             /*if($arrStudent[0] != $id)
-=======
             if($arrStudent[0] != $id)
->>>>>>> e0cd6abbd0575cc4ddf1c4b7ef9a991f5568a76e
-            {
-                fwrite($file_copy,$arrStudent[0]."~".$arrStudent[1]."~".$arrStudent[2]."~".$arrStudent[3]."~".$arrStudent[4]."~".$arrStudent[5]."~".$arrStudent[6]."~"."3"."~"."/n");
-            }
-            else
-            {
-                $arrStudent[$pos]=$value;
-                fwrite($file_copy,$arrStudent[0]."~".$arrStudent[1]."~".$arrStudent[2]."~".$arrStudent[3]."~".$arrStudent[4]."~".$arrStudent[5]."~".$arrStudent[6]."~"."3"."~"."/n");
-<<<<<<< HEAD
-            }*/
-            
-
-            
-        }
-        /*fclose($file);
-        unlink($file);
-=======
-            }   
-        }
-        fclose($file);
-        unlink("user.txt");
->>>>>>> e0cd6abbd0575cc4ddf1c4b7ef9a991f5568a76e
-        fclose($file_copy);
-        $file = fopen("user.txt","a")or die("error");
-        $file_copy = fopen("usercopy.txt","r")or die("error");
-        while(!feof($file_copy))
-        {
-            $line = fgets($file_copy);
-            $arrStudent = explode("~",$line);
-            fwrite($file,$arrStudent[0]."~".$arrStudent[1]."~".$arrStudent[2]."~".$arrStudent[3]."~".$arrStudent[4]."~".$arrStudent[5]."~".$arrStudent[6]."~"."3"."~"."/n");
-        }
-        fclose($file);
-        fclose($file_copy);
-<<<<<<< HEAD
         unlink($file_copy);*/
     }
 
     //public function s
 
-=======
         unlink("usercopy.txt");
      }
->>>>>>> e0cd6abbd0575cc4ddf1c4b7ef9a991f5568a76e
     public function DisplayStudents()
     {
         $file = fopen("user.txt","a+")or die("error");
