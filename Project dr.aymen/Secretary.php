@@ -26,6 +26,8 @@ class Secretary extends GuardSecretary
         {
             $line = fgets($file);
             $arrStudent = explode("~",$line);
+
+
             if($arrStudent[0] != $id)
             {
                 fwrite($file_copy,$arrStudent[0]."~".$arrStudent[1]."~".$arrStudent[2]."~".$arrStudent[3]."~".$arrStudent[4]."~".$arrStudent[5]."~".$arrStudent[6]."~"."3"."~"."/n");
@@ -35,18 +37,23 @@ class Secretary extends GuardSecretary
                 $arrStudent[$pos]=$value;
                 fwrite($file_copy,$arrStudent[0]."~".$arrStudent[1]."~".$arrStudent[2]."~".$arrStudent[3]."~".$arrStudent[4]."~".$arrStudent[5]."~".$arrStudent[6]."~"."3"."~"."/n");
             }
+            
+
+            
         }
         fclose($file);
+        unlink($file);
         fclose($file_copy);
         $file = fopen("user.txt","a")or die("error");
         $file_copy = fopen("usercopy.txt","r")or die("error");
-        while(!feof($file))
+        while(!feof($file_copy))
         {
             $line = fgets($file_copy);
             $arrStudent = explode("~",$line);
             fwrite($file,$arrStudent[0]."~".$arrStudent[1]."~".$arrStudent[2]."~".$arrStudent[3]."~".$arrStudent[4]."~".$arrStudent[5]."~".$arrStudent[6]."~"."3"."~"."/n");
         }
         fclose($file);
+        fclose($file_copy);
         unlink($file_copy);
      }
 
@@ -63,6 +70,7 @@ class Secretary extends GuardSecretary
 }
 
 $Sec = new Secretary;
+$Sec->UpdateStudent(1,2,"ahmed");
 $Sec->DisplayStudents();
 $st = explode("~",$Sec->SearchStudent(1));
 
