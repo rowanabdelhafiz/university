@@ -25,49 +25,49 @@ class GuardSecretary
 
     public function getNumHoursWorking()
     {
-        if($this->numDaysWorking > -1)
+        if($this->numHoursWorking > -1)
         {
-            return $this->numDaysWorking;
+            return $this->numHoursWorking;
         }
     }
 
-    public function setNumDaysWorking($nW)
+    public function setNumHoursWorking($nH)
     {
-        if($nW > -1)
+        if($nH > -1)
         {
-            $this->numDaysWorking = $nW;
+            $this->numHoursWorking = $nH;
         }
     }
 
-    public function getNumDaysWorking()
+    public function getNationalID()
     {
-        if($this->numDaysWorking > -1)
+        if($this->NationalID > 0)
         {
-            return $this->numDaysWorking;
+            return $this->NationalID;
         }
     }
 
-    public function setNumDaysWorking($nW)
+    public function setNationalID($nID)
     {
-        if($nW > -1)
+        if($nID > 0)
         {
-            $this->numDaysWorking = $nW;
+            $this->NAtionalID = $nID;
         }
     }
 
-    public function getNumDaysWorking()
+    public function getAddress()
     {
-        if($this->numDaysWorking > -1)
+        if($this->Address != null)
         {
-            return $this->numDaysWorking;
+            return $this->Address;
         }
     }
 
-    public function setNumDaysWorking($nW)
+    public function setAddress($A)
     {
-        if($nW > -1)
+        if($A != null)
         {
-            $this->numDaysWorking = $nW;
+            $this->Address = $A;
         }
     }
 }
