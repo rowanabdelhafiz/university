@@ -16,5 +16,11 @@ $object->setFaculity($faculity);
 $object->setType_Majoring_in_high_school($majour);
 $line_per;
 $line_maj;
-check_percentage($line_per,$line_maj);
+check_percentage($line_per,$line_maj,$faculity);
+$accepted=0;
+if($line_per>=$per)
+{
+    $accepted=1;
+}
+if($line_maj)
 ?>

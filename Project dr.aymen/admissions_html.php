@@ -33,6 +33,10 @@
 				<input type="date" placeholder="date of birth" name="date_of_birth" required>
 			</div>
 			<br>
+            <div class="input-group">
+				<input type="number" placeholder="percentage" name="per" required>
+			</div>
+			<br>
             <select name="faculity" class="input-group" style="opacity: 0.5; border-radius: 25px;">
 			<option value="1">engineering</option>
     		<option value="2">computer science</option>
