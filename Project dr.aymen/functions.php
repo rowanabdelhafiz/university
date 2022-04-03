@@ -10,16 +10,15 @@ function id_calculate(&$count,$text)
     fclose($file);
     }
 }
-function check_percentage(&$line_per,&$line_maj,$faculity)
+function check_percentage(&$line_per,$faculity)
 {
     $file = fopen("faculity.txt", "r")or die("Unable to open file!");
     while (!feof($file)) {
         $linee=fgets($file);
         $ArrayResult = explode("~", $linee);
-        if($linee && $ArrayResult[1]==$faculity)
+        if($linee && $ArrayResult[0]==$faculity)
         {
             $line_per= $ArrayResult[2];
-            $line_maj= $ArrayResult[3];
         }   
     }
 fclose($file); 
