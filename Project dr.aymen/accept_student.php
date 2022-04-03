@@ -22,5 +22,8 @@ if($line_per>=$per)
 {
     $accepted=1;
 }
-if($line_maj)
+if($accepted)
+{
+    $object->add_student($object->getId(),$object->getEmail(),$object->getName(),$object->getPhone_number(),$object->getDate_of_birthday(),$faculity);
+}
 ?>

@@ -1,3 +1,1 @@
 //id~name~mail~Type~password~
-1~ahmed~ahmed.gmail~cs~123
-2~seif~seif.gmail~se~345

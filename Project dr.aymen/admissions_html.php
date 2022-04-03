@@ -20,7 +20,7 @@
 			<br>
 			<br>
             <div class="input-group">
-				<input type="email" placeholder="email" name="email" required>
+				<input type="em" placeholder="email" name="email" required>
 			</div>
 			<br>
 			<br>

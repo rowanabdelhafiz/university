@@ -25,7 +25,7 @@ class Admissions extends user
     {
         $file=fopen("user.txt","a");
         $email=$mail."@hel.stu.eg";
-        fwrite($file,$id."~".$email."~".$name."~".$phone_number."~".$date_of_birthday."~"."3"."~");
+        fwrite($file,$id."~".$email."~".$name."~".$phone_number."~".$date_of_birthday."~".$faculity."~"."3"."~");
         fwrite($file,"\n");
         fclose($file); 
     }
