@@ -1,0 +1,2 @@
+id~email~name~password~phonenumber~date~faculity_id~usertype_id
+1~george@hel.stu.eg~george~ihf01068511331~01068511331~2022-04-20~1~3~

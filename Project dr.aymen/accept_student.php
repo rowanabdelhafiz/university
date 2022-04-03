@@ -14,11 +14,9 @@ $password="ihf".$phone_number;
 $object->setpassword($password);
 $object->setDate_of_birthday($date_of_birth);
 $object->setFaculity($faculity);
-$object->setType_Majoring_in_high_school($majour);
 $line_per;
 check_percentage($line_per,$faculity);
 $accepted=0;
-//////////
 if($line_per>=$per)
 {
     $accepted=1;
