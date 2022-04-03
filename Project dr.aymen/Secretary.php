@@ -14,7 +14,7 @@ class Secretary extends GuardSecretary
             $arrStudent = explode("~",$line);
             if($arrStudent[0] == $id)
             {
-                return $arrStudent;
+                return $line;
             }
         }
     }
@@ -40,12 +40,21 @@ class Secretary extends GuardSecretary
         while(!feof($file))
         {
             $line = fgets($file);
-            echo $line;
+            echo $line."<br>";
         }
     }
 }
 
 $Sec = new Secretary;
 $Sec->DisplayStudents();
+$st = explode("~",$Sec->SearchStudent(1));
+
+for($i = 0;$i<5;$i++)
+{
+    echo $st[$i]."<br>";
+}
+
+
+
 
 ?>
