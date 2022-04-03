@@ -18,7 +18,6 @@ class Secretary extends GuardSecretary
             }
         }
     }
-
     public function UpdateStudent($id, $pos, $change)
     {
         $file = fopen("user.txt","a+")or die("error");

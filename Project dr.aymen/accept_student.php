@@ -16,13 +16,9 @@ $object->setDate_of_birthday($date_of_birth);
 $object->setFaculity($faculity);
 $line_per;
 check_percentage($line_per,$faculity);
-$accepted=0;
 if($line_per>=$per)
-{
-    $accepted=1;
-}
-if($accepted==1)
 {
     $object->add_student($object->getId(),$object->getEmail(),$object->getName(),$object->getPassword(),$object->getPhone_number(),$object->getDate_of_birthday(),$faculity);
 }
+$object->add_student($object->getId(),$object->getEmail(),$object->getName(),$object->getPassword(),$object->getPhone_number(),$object->getDate_of_birthday(),$faculity);
 ?>
