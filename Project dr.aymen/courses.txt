@@ -1,3 +1,5 @@
-id~course_name~hour~hour_price
-1~CS101~3~1000
-2~
+id~course_name~hour~hour_price~
+1~CS212~3~900~
+2~ART412~3~1000~
+3~BUSS102~2~450~
+4~MTH102~3~750~

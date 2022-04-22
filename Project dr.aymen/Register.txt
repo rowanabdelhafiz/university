@@ -1,0 +1,2 @@
+Id~studentId~date~totalHr~totalPriceHr
+1~2~23/11/2021~0~0
