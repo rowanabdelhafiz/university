@@ -29,7 +29,6 @@ class Secretary extends GuardSecretary
     public function UpdateStudent($id,$pos,$value)
     {
         $file = fopen("user.txt","r")or die("error");
-        //$file_copy = fopen("usercopy.txt","a")or die("error");
         while(!feof($file))
         {
             $line = fgets($file);
@@ -50,24 +49,12 @@ class Secretary extends GuardSecretary
                         $newL.="~";                        
                     }
 
-                }
-                //$newL.="\n";
-                
+                }                
 
                 $contents = file_get_contents("user.txt");
             	$contents = str_replace($line, $newL, $contents);
             	file_put_contents("user.txt", $contents);
             }
-            /*if($arrStudent[0] != $id)
-            if($arrStudent[0] != $id)
-            {
-                fwrite($file_copy,$arrStudent[0]."~".$arrStudent[1]."~".$arrStudent[2]."~".$arrStudent[3]."~".$arrStudent[4]."~".$arrStudent[5]."~".$arrStudent[6]."~"."3"."~"."/n");
-            }
-            else
-            {
-                $arrStudent[$pos]=$value;
-                fwrite($file_copy,$arrStudent[0]."~".$arrStudent[1]."~".$arrStudent[2]."~".$arrStudent[3]."~".$arrStudent[4]."~".$arrStudent[5]."~".$arrStudent[6]."~"."3"."~"."/n");
-            }*/
             
 
             
