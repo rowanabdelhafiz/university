@@ -59,31 +59,7 @@ class Secretary extends GuardSecretary
 
             
         }
-        /*fclose($file);
-        unlink($file);
-=======
-            }   
-        }
-        fclose($file);
-        unlink("user.txt");
->>>>>>> e0cd6abbd0575cc4ddf1c4b7ef9a991f5568a76e
-        fclose($file_copy);
-        $file = fopen("user.txt","a")or die("error");
-        $file_copy = fopen("usercopy.txt","r")or die("error");
-        while(!feof($file_copy))
-        {
-            $line = fgets($file_copy);
-            $arrStudent = explode("~",$line);
-            fwrite($file,$arrStudent[0]."~".$arrStudent[1]."~".$arrStudent[2]."~".$arrStudent[3]."~".$arrStudent[4]."~".$arrStudent[5]."~".$arrStudent[6]."~"."3"."~"."/n");
-        }
-        fclose($file);
-        fclose($file_copy);
-        unlink($file_copy);*/
     }
-
-    //public function s
-
-        //unlink("usercopy.txt");
      
     public function DisplayStudents()
     {
