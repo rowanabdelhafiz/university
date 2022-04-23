@@ -1,3 +1,2 @@
 id~course_name~hour~hour_price
 1~CS101~3~1000
-2~
