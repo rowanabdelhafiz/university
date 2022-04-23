@@ -2,7 +2,7 @@
 
 include_once("GuardSecretary.php");
 include_once("student.php");
-
+include_once("functions.php");
 
 
 
@@ -25,11 +25,14 @@ class Secretary extends GuardSecretary
 
     public function UpdateStudent($id,$pos,$value)
     {
-        $file = fopen("user.txt","r")or die("error");
+        $fileObj = new filemanager();
+        $fileObj->setFilenames("user.txt");
+        $fileObj->setSeparator("~");
+        $file = fopen($fileObj->getFilenames(),"r")or die("error");
         while(!feof($file))
         {
             $line = fgets($file);
-            $arrStudent = explode("~",$line);
+            $arrStudent = explode($fileObj->getSeparator(),$line);
 
 
             if($arrStudent[0]==$id)
@@ -43,14 +46,12 @@ class Secretary extends GuardSecretary
                     
                     if($i<count($arrStudent) - 1)
                     {
-                        $newL.="~";                        
+                        $newL.=$fileObj->getSeparator();                        
                     }
 
                 }                
 
-                $contents = file_get_contents("user.txt");
-            	$contents = str_replace($line, $newL, $contents);
-            	file_put_contents("user.txt", $contents);
+                $fileObj->update_dataFile($line,$newL);
             }
 
             
@@ -68,6 +69,7 @@ class Secretary extends GuardSecretary
     }
 }
 
-
+$S = new Secretary();
+$S->UpdateStudent(1,2,"george");
 
 ?>

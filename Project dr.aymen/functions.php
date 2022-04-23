@@ -9,6 +9,14 @@ class filemanager
         fwrite($file,$data."\r\n");
         fclose($file);
     }
+
+    function update_dataFile($OLine,$NLine)
+    {
+        $contents = file_get_contents($this->Filenames);
+        $contents = str_replace($OLine, $NLine, $contents);
+        file_put_contents($this->Filenames, $contents);
+    }
+
     function getId()
     {
         $file = fopen("$this->Filenames", "r+")or die("Unable to open file!");
