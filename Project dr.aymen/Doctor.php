@@ -1,32 +1,35 @@
 <?php
+include_once("class_user.php");
+include_once("functions.php");
+
 class doctor extends user 
 {
     public function dropCourse($CrsId,$StdId)
     {
-        //fileObj = new filemanager();
-        //fileObj->setFilenames("Register.txt");
-        //fileObj->setSeparator("~");
-        //then put all those
-        $f1 = fopen("Register.txt","r+");
+        $fileObj = new filemanager();
+        $fileObj->setFilenames("Register.txt");
+        $fileObj->setSeparator("~");
+        $f1 = fopen($fileObj->getFilenames(),"r+") or die("error");
         while(!feof($f1))
         {
             $line = fgets($f1);
-            $ar1 = explode("~",$line);
+            $ar1 = explode($fileObj->getSeparator(),$line);
 
             if($ar1[1] == $StdId)
             {
-                //fileObj2 = new filemanager();
-                //fileObj2->setFilenames("RegisterDetails.txt");
-                //fileObj2->setSeparator("~");
-                //same
-                $f2 = fopen("RegisterDetails.txt","r+");
+                echo("checked </br>");
+                $fileObj2 = new filemanager();
+                $fileObj2->setFilenames("RegisterDetails.txt");
+                $fileObj2->setSeparator("~");
+                $f2 = fopen($fileObj2->getFilenames(),"r+");
                 while(!feof($f2))
                 {
                     $line2=fgets($f2);
-                    $ar2 = explode("~",$line2);
+                    $ar2 = explode($fileObj2->getSeparator(),$line2);
 
                     if($ar2[1] == $ar1[0] && $ar2[2] == $CrsId)
                     {
+                        echo("checked </br>");
                         $ar1[3]-=$ar2[3];
                         $ar1[4]-=$ar2[4];
                         
@@ -58,4 +61,7 @@ class doctor extends user
         }
     }
 }
+
+$d = new doctor();
+$d->dropCourse(5,2);
 ?>
