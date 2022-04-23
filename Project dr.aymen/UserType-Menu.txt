@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 
 3~student
@@ -6,3 +7,8 @@
 6~Secretary
 
 8~Courses
+=======
+1~doctor~
+2~Secretary~
+3~student~
+>>>>>>> 998463b6ac7a6cefc6a6f466c7023c871a69127f
