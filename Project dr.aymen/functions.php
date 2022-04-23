@@ -55,7 +55,7 @@ class filemanager
 
     public function setFilenames($Filenames)
     {
-        if($this->Filenames!="")
+        if($Filenames!="")
         {
             $this->Filenames = $Filenames;
         }
@@ -73,40 +73,9 @@ class filemanager
         
     }
 
-<<<<<<< HEAD
-class FileManager
-{
-    private $FName;
-    private $FSeparator;
-
-    /**
-     * Get the value of FName
-     */ 
-    public function getFName()
-    {
-        if($this->FName!="")
-        {
-            return $this->FName;
-        }
-        
-    }
-
-    /**
-     * Set the value of FName
-     *
-     * @return  self
-     */ 
-    public function setFName($FName)
-    {
-        if($FName != "")
-        {
-            $this->FName = $FName;
-        }
-    }
-=======
     public function setSeparator($Separator)
     {
-        if($this->Separator!=null)
+        if($Separator!=null)
         {
             $this->Separator = $Separator;
             return $this;
@@ -114,53 +83,6 @@ class FileManager
         
 
         
-    }
-}
->>>>>>> 11896454478e60a760cff671687e00fc3bec5725
-
-    /**
-     * Get the value of FSeparator
-     */ 
-    public function getFSeparator()
-    {
-        if($this->FSeparator != "")
-        {
-            return $this->FSeparator;
-        }
-    }
-
-    /**
-     * Set the value of FSeparator
-     *
-     * @return  self
-     */ 
-    public function setFSeparator($FSeparator)
-    {
-        if($FSeparator != "")
-        {
-            $this->FSeparator = $FSeparator;
-        }
-    }
-
-    public function Store($line)
-    {
-        $file = fopen($this->FName,"a+");
-        fwrite($file,$line);
-        fclose($file);
-    }
-
-    public function GetLastID()
-    {
-        $ID=0;
-        $file = fopen($this->FName,"r+");
-        while(!feof($file))
-        {
-            fgets($file);
-            $ID++;
-        }
-        fclose($file);
-
-        return $ID;
     }
 }
 ?>
