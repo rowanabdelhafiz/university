@@ -7,6 +7,7 @@ class user
     protected $phone_number=null;
     protected $date_of_birthday=null;
     protected $email=null;
+    protected $usertype_id=null;
     public function getId()
     {
         if($this->id>0)

@@ -37,7 +37,7 @@
 				<input type="number" placeholder="percentage" name="per" required>
 			</div>
 			<br>
-            <select name="faculity" class="input-group" style="opacity: 0.5; border-radius: 25px;">
+            <select name="faculity" class="input-group" style="opacity: 0.5; border-radius: 25px;"required>
 			<option value="1">engineering</option>
     		<option value="2">computer science</option>
     		<option value="3">biotecnology</option>
@@ -47,6 +47,14 @@
             <option value="7">pharmacy</option>
             <option value="8">art&design</option>
             <option value="9">languages</option>
+  			</select>
+			  <br>
+			  <br>
+            <select name="userid_type" class="input-group" style="opacity: 0.5; border-radius: 25px;"required>
+			<option value="1">doctor</option>
+    		<option value="2">student</option>
+    		<option value="3">Secretary</option>
+			<option value="4">admin</option>
   			</select>
 			  <br>
 			<div class="input-group">

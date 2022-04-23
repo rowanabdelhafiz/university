@@ -22,9 +22,12 @@ class Secretary extends GuardSecretary
         }
     }
 
+<<<<<<< HEAD
 //$contents = file_get_contents("../Files/" . $FileName);
 //	$contents = str_replace($Old, $New, $contents);
 //	file_put_contents("../Files/" . $FileName, $contents);
+=======
+>>>>>>> 11896454478e60a760cff671687e00fc3bec5725
 
     public function UpdateStudent($id,$pos,$value)
     {
@@ -55,7 +58,11 @@ class Secretary extends GuardSecretary
             	$contents = str_replace($line, $newL, $contents);
             	file_put_contents("user.txt", $contents);
             }
+<<<<<<< HEAD
             
+=======
+    }
+>>>>>>> 11896454478e60a760cff671687e00fc3bec5725
 
             
         }
