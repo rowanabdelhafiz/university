@@ -34,9 +34,7 @@ class doctor extends user
                         $ar1[4]-=$ar2[4];
                         
                         //function delete line in file manager from fileObj2 for RegisterDetails!!
-                        $contents = file_get_contents("RegisterDetails.txt");
-            	        $contents = str_replace($line2, "", $contents);
-            	        file_put_contents("RegisterDetails.txt", $contents);
+                        $fileObj2->remove_dataFile($line2);
 
                         $nL="";
                         for($i=0;$i<count($ar1);$i++)

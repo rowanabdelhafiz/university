@@ -10,6 +10,13 @@ class filemanager
         fclose($file);
     }
 
+    function remove_dataFile($Line)
+    {
+        $contents = file_get_contents($this->Filenames);
+        $contents = str_replace($Line, "", $contents);
+        file_put_contents($this->Filenames, $contents);
+    }
+
     function update_dataFile($OLine,$NLine)
     {
         $contents = file_get_contents($this->Filenames);

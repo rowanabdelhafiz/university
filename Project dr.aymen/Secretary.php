@@ -68,8 +68,4 @@ class Secretary extends GuardSecretary
         }
     }
 }
-
-$S = new Secretary();
-$S->UpdateStudent(1,2,"george");
-
 ?>
