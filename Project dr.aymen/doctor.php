@@ -49,9 +49,7 @@ class doctor extends user
                         }
 
                         //function update line in file manager from fileObj for RegisterDetails!!
-                        $contents = file_get_contents("Register.txt");
-            	        $contents = str_replace($line, $nL, $contents);
-            	        file_put_contents("Register.txt", $contents);
+                        $fileObj->update_dataFile($line,$nL);
                         break;
                     }
                 }
