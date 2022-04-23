@@ -20,7 +20,7 @@ echo $line_per;
 echo $per;
 if($line_per<=$per)
 {
-    $object->add_student($object->getId(),$object->getEmail(),$object->getName(),$object->getPassword(),$object->getPhone_number(),$object->getDate_of_birthday(),$faculity);
+    
 }
 //$object->add_student($object->getId(),$object->getEmail(),$object->getName(),$object->getPassword(),$object->getPhone_number(),$object->getDate_of_birthday(),$faculity);
 ?>

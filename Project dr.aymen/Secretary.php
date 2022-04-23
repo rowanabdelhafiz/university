@@ -22,9 +22,6 @@ class Secretary extends GuardSecretary
         }
     }
 
-//$contents = file_get_contents("../Files/" . $FileName);
-//	$contents = str_replace($Old, $New, $contents);
-//	file_put_contents("../Files/" . $FileName, $contents)
 
     public function UpdateStudent($id,$pos,$value)
     {
@@ -50,9 +47,6 @@ class Secretary extends GuardSecretary
             	$contents = str_replace($line, $newL, $contents);
             	file_put_contents("user.txt", $contents);
             }
-            /*if($arrStudent[0] != $id)
-            if($arrStudent[0] != $id)
-        unlink($file_copy);*/
     }
 
     //public function s

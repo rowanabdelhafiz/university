@@ -1,30 +1,98 @@
 <?php
-function id_calculate(&$count,$text)
+class filemanager
 {
-    $file = fopen("$text", "r")or die("Unable to open file!");
-    if ($file) {
+    protected $Filenames;
+    protected $Separator;
+    function store_dataFile($data)
+    {
+        $file=fopen($this->Filenames, "a+");
+        fwrite($file,$data."\r\n");
+        fclose($file);
+    }
+    function getId()
+    {
+        $file = fopen("$this->Filenames", "r+")or die("Unable to open file!");
+        $lastid=0;
+        if ($file) {
+             while (!feof($file)) {
+                $line=fgets($file);
+                $Arrayline=explode($this->Separator,$line);
+                if($Arrayline[0]!="")
+                {
+                    $lastid=$Arrayline[0];
+                }
+       
+             }
+            fclose($file);
+         }
+         else{
+             return 0;
+         }
+         return $lastid;
+    }
+    
+    function check_accept(&$line_per,$faculity,$filename)
+    {
+        $file = fopen($filename, "r+")or die("Unable to open file!");
         while (!feof($file)) {
-            fgets($file);
-            $count=$count+1;
-        }
-    fclose($file);
+            $linee=fgets($file);
+            $ArrayResult = explode($this->Separator, $linee);
+            if($linee && $ArrayResult[0]==$faculity)
+            {
+                $line_per= $ArrayResult[2];
+            }      
+         }
+        fclose($file); 
     }
-}
-function check_percentage(&$line_per,$faculity)
-{
-    $file = fopen("faculity.txt", "r")or die("Unable to open file!");
-    while (!feof($file)) {
-        $linee=fgets($file);
-        $ArrayResult = explode("~", $linee);
-        if($linee && $ArrayResult[0]==$faculity)
+
+    public function getFilenames()
+    {
+        if($this->Filenames!="")
         {
-            $line_per= $ArrayResult[2];
-        }   
+            return $this->Filenames;
+        }
     }
-fclose($file); 
+
+    public function setFilenames($Filenames)
+    {
+        if($this->Filenames!="")
+        {
+            $this->Filenames = $Filenames;
+        }
+        
+        return $this;
+    }
+
+    /**
+     * Get the value of Separator
+     */ 
+    public function getSeparator()
+    {
+        if($this->Separator!=null)
+        {
+            return $this->Separator;
+            return $this;
+        }
+        
+    }
+
+    /**
+     * Set the value of Separator
+     *
+     * @return  self
+     */ 
+    public function setSeparator($Separator)
+    {
+        if($this->Separator!=null)
+        {
+            $this->Separator = $Separator;
+            return $this;
+        }
+        
+
+        
+    }
 }
-
-
 
 
 ?>

@@ -7,6 +7,8 @@ class user
     protected $phone_number=null;
     protected $date_of_birthday=null;
     protected $email=null;
+    protected $faculity_id=null;
+    protected $usertype_id=null;
     public function getId()
     {
         if($this->id>0)
@@ -97,6 +99,26 @@ class user
             $this->email = $email;
             return $this;
         }
+    }
+
+    /**
+     * Get the value of faculity_id
+     */ 
+    public function getFaculity_id()
+    {
+        if($this->Faculity_id!=null){return $this->faculity_id;}
+    }
+
+    /**
+     * Set the value of faculity_id
+     *
+     * @return  self
+     */ 
+    public function setFaculity_id($faculity_id)
+    {
+        if($faculity_id!=null){$this->faculity_id = $faculity_id;return $this;}
+
+        
     }
 }
 
