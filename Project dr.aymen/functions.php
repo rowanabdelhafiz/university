@@ -63,9 +63,6 @@ class filemanager
         return $this;
     }
 
-    /**
-     * Get the value of Separator
-     */ 
     public function getSeparator()
     {
         if($this->Separator!=null)
@@ -76,11 +73,6 @@ class filemanager
         
     }
 
-    /**
-     * Set the value of Separator
-     *
-     * @return  self
-     */ 
     public function setSeparator($Separator)
     {
         if($this->Separator!=null)
