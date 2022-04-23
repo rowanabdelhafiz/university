@@ -44,8 +44,7 @@ class doctor extends user
                             $nL.=$ar1[$i];
                             if($i<count($ar1)-1)
                             {
-                                //also this from fileObj's separator 
-                                $nL.="~";
+                                $nL.=$fileObj->getSeparator();
                             }
                         }
 
