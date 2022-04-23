@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 id~course_name~hour~hour_price~
 1~CS212~3~900~
 2~ART412~3~1000~
 3~BUSS102~2~450~
 4~MTH102~3~750~
+=======
+id~course_name~hour~hour_price
+1~CS101~3~1000
+>>>>>>> 11896454478e60a760cff671687e00fc3bec5725
