@@ -2,7 +2,7 @@
 class filemanager
 {
     protected $Filenames;
-    protected $Separator;
+    protected $Separator = "~";
     function store_dataFile($data)
     {
         $file=fopen($this->Filenames, "a+");
@@ -24,9 +24,37 @@ class filemanager
         file_put_contents($this->Filenames, $contents);
     }
 
+    function tableData()
+    {
+        $file = fopen($this->Filenames,"r");
+        while(!feof($file))
+        {
+
+        }
+    }
+
+    function AllContents()
+    {
+        $file = fopen($this->Filenames,"r");
+
+        $results = array();
+        $i=-1;
+
+        while(!feof($file))
+        {
+            $line = fgets($file);
+            if($i != -1)
+            {
+                $results[$i] = $line;
+            }
+            $i++;
+        }
+        return $results;
+    }
+
     function getId()
     {
-        $file = fopen("$this->Filenames", "r+")or die("Unable to open file!");
+        $file = fopen($this->Filenames, "r+")or die("Unable to open file!");
         $lastid=0;
         if ($file) {
              while (!feof($file)) {
@@ -95,9 +123,6 @@ class filemanager
             $this->Separator = $Separator;
             return $this;
         }
-        
-
-        
     }
 }
 ?>

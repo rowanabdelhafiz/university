@@ -17,7 +17,6 @@ class doctor extends user
 
             if($ar1[1] == $StdId)
             {
-                echo("checked </br>");
                 $fileObj2 = new filemanager();
                 $fileObj2->setFilenames("RegisterDetails.txt");
                 $fileObj2->setSeparator("~");
@@ -29,7 +28,6 @@ class doctor extends user
 
                     if($ar2[1] == $ar1[0] && $ar2[2] == $CrsId)
                     {
-                        echo("checked </br>");
                         $ar1[3]-=$ar2[3];
                         $ar1[4]-=$ar2[4];
                         
