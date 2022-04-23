@@ -3,9 +3,8 @@ include_once("class_user.php");
 class Admissions extends user
 {
     protected $ScoreNeeded=-1;
-    protected $faculity=null;
-    protected $type_Majoring_in_high_school=-1;
-
+    protected $faculity_id=null;
+    protected $userid_type=null;
     function __construct(){
         $this->filemanagerobj=new FileManager();
         $this->filemanager->setfilename="user.txt";
@@ -15,9 +14,9 @@ class Admissions extends user
     {
         //id[0]~usertype_id[1]~name[2]~password[3]~phonenumber[4]~date[5]~faculity_id[6]~email[7]~
         $s=$this->filemanager->get_separator;
-        $email=$this->getEmail()."@hel.stu.eg";
+        $email=$this->getEmail()."@hel.eg";
         $id=$this->filemanagerobj->get_id($s)+1;
-        $record=$id.$s..$s.$this->getName().$s.$this->getPassword().$s.$this->getPhone_number().$s.$this->getDate_of_birthday().$email;
+        $record=$id.$s.$this->getUserid_type().$s.$this->getName().$s.$this->getPassword().$s.$this->getPhone_number().$s.$this->getDate_of_birthday().$s.$this->faculity_id.$s.$email;
         $this->filemanagerobj->store_dataFile($record);
     }
     public function getScoreNeeded()
@@ -36,35 +35,37 @@ class Admissions extends user
         }
         
     }
-    public function add_($id,$mail,$name,$password,$phone_number,$date_of_birthday,$faculity)
+    public function getFaculity_id()
     {
-        $file=fopen("user.txt","a");
-        $email=$mail."@hel.stu.eg";
-        fwrite($file,$id."~".$email."~".$name."~".$password."~".$phone_number."~".$date_of_birthday."~".$faculity."~"."3"."~");
-        fwrite($file,"\n");
-        fclose($file);
+        return $this->faculity_id;
     }
 
-    public function getFaculity()
+    public function setFaculity_id($faculity_id)
     {
-        return $this->faculity;
-    }
-    public function setFaculity($faculity)
-    {
-        $this->faculity = $faculity;
+
+        $this->faculity_id = $faculity_id;
 
         return $this;
     }
 
-    public function getType_Majoring_in_high_school()
-    {
-        return $this->type_Majoring_in_high_school;
-    }
-    public function setType_Majoring_in_high_school($type_Majoring_in_high_school)
-    {
-        $this->type_Majoring_in_high_school = $type_Majoring_in_high_school;
 
-        return $this;
+    public function getUserid_type()
+    {
+        if($this->userid_type!==null)
+        {
+            return $this->userid_type;
+        }
+    }
+
+    public function setUserid_type($userid_type)
+    {
+        if($userid_type!=null)
+        {
+            $this->userid_type = $userid_type;
+
+             return $this;
+        }
+        
     }
 }
 ?>
