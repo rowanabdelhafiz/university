@@ -17,6 +17,8 @@ class Admissions extends user
         $s=$this->filemanagerobj->getSeparator();
         $email=$this->getEmail()."@hel.eg";
         $id=$this->filemanagerobj->getId($s)+1;
+        $pass="hel".$this->getPhone_number();
+        $this->setpassword($pass);
         $record=$id.$s.$this->getUserid_type().$s.$this->getName().$s.$this->getPassword().$s.$this->getPhone_number().$s.$this->getDate_of_birthday().$s.$this->getFaculity_id().$s.$email;
         $this->filemanagerobj->store_dataFile($record);
     }
