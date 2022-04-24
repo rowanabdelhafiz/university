@@ -16,7 +16,7 @@ class Admissions extends user
         $s=$this->filemanager->get_separator;
         $email=$this->getEmail()."@hel.eg";
         $id=$this->filemanagerobj->get_id($s)+1;
-        $record=$id.$s.$this->getUserid_type().$s.$this->getName().$s.$this->getPassword().$s.$this->getPhone_number().$s.$this->getDate_of_birthday().$s.$this->faculity_id.$s.$email;
+        $record=$id.$s.$this->getUserid_type().$s.$this->getName().$s.$this->getPassword().$s.$this->getPhone_number().$s.$this->getDate_of_birthday().$s.$this->getFaculity_id().$s.$email;
         $this->filemanagerobj->store_dataFile($record);
     }
     public function getScoreNeeded()

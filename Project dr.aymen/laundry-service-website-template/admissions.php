@@ -89,7 +89,7 @@
                 <div class="col-12">
                     <div class="contact-form">
                         <div id="success"></div>
-                        <form method="POST" action="accept_student.php" method="POST" class="login-email">
+                        <form action="registration.php" method="POST" class="login-email">
                             <div class="form-row">
                                 <div class="col-md-6">
                                     <div class="control-group">
