@@ -80,9 +80,11 @@ class Course extends InID
 
 $c = new Course();
 $ac = $c->getAllCourses();
+echo "<table border=1>";
 for($i=0;$i<count($ac);$i++)
 {
-    echo $ac[$i]->GetHourPrice()." ".$ac[$i]->name."</br>";
+    echo "<tr><td>".$ac[$i]->GetHourPrice()."</td><td>".$ac[$i]->name."</td></tr>";
 }
+echo "</table>"
 
 ?>
