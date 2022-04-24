@@ -6,6 +6,7 @@ class filemanager
     function check_login($id , $password)
     {
        $file= fopen($this->Filenames,"a+");
+
         while(!feof($file))
         {
             $line = fgets($file);
