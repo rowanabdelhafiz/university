@@ -20,7 +20,7 @@ class Register extends InID
         {
             $ar1 = explode($fileObj->getSeparator(),$Rf[$i]);
 
-            if($ar1[1] == $StdId)
+            /*if($ar1[1] == $StdId)
             {
                 $fileObj2 = new filemanager();
                 $fileObj2->setFilenames("RegisterDetails.txt");
@@ -55,7 +55,7 @@ class Register extends InID
                     }
                 }
                 break;
-            }
+            }*/
         }
     }
 
