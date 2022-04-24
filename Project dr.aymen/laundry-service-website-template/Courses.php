@@ -1,20 +1,32 @@
 <?php
 
+include_once("InID.php");
 include_once("functions.php");
 
 class Course extends InID
 {
     protected $Hour = 0;
     protected $HourPrice = 0;
-    private $FileCourse;
+    public $FileCourse;
     
     public function _construct()
     {
-        $FileCourse = new filemanager();
-        $FileCourse->Filenames = "courses.txt";
+        echo("Construct?");
+        $this->FileCourse = new filemanager();
+        $this->FileCourse->Filenames = "courses.txt";
     }
 
-    
+    public function getOneCourse($ID)
+    {
+        $rec = $this->FileCourse->getLineByID($ID);
+        $ar = explode($this->FileCourse->getSeprator(),$rec);
+        $this->ID = $ar[0];
+        $this->name = $ar[1];
+        $this->Hour = $ar[2];
+        $this->HourPrice = $ar[3];
+
+        return $this;
+    }
 
     public function getHour()
     {
@@ -49,4 +61,9 @@ class Course extends InID
     }
 }
 
+$c = new Course();
+$c->FileCourse = new filemanager();
+$c->FileCourse->setFilenames("courses.txt");
+$c->getOneCourse(2);
+echo $c->name;
 ?>
