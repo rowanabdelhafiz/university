@@ -19,7 +19,7 @@ class Course extends InID
     public function getOneCourse($ID)
     {
         $rec = $this->FileCourse->getLineByID($ID);
-        $ar = explode($this->FileCourse->getSeprator(),$rec);
+        $ar = explode($this->FileCourse->getSeparator(),$rec);
         $this->ID = $ar[0];
         $this->name = $ar[1];
         $this->Hour = $ar[2];
