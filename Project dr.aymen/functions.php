@@ -30,16 +30,18 @@ class filemanager
         }
     }
 
-    function getLineByID($ID)
+    public function getLineByID($ID)
     {
-        $file = fopen($this->Filenames,"r");
+        $file = fopen("$this->Filenames","r+")or die("error");
         while(!feof($file))
         {
+            echo("Good");
             $line = fgets($file);
             $arr = explode($this->Separator,$line);
 
-            if($arr[0] > 0 && $arr[0] == $ID)
+            if($arr[0] == $ID)
             {
+                echo("Good");
                 return $line;
             }
         }
