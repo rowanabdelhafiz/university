@@ -35,13 +35,11 @@ class filemanager
         $file = fopen("$this->Filenames","r+")or die("error");
         while(!feof($file))
         {
-            echo("Good");
             $line = fgets($file);
             $arr = explode($this->Separator,$line);
 
             if($arr[0] == $ID)
             {
-                echo("Good");
                 return $line;
             }
         }

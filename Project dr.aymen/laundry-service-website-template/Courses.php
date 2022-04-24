@@ -9,23 +9,40 @@ class Course extends InID
     protected $HourPrice = 0;
     public $FileCourse;
     
-    public function _construct()
+    public function __construct()
     {
-        echo("Construct?");
         $this->FileCourse = new filemanager();
-        $this->FileCourse->Filenames = "courses.txt";
+        $this->FileCourse->setFilenames("courses.txt");
+    }
+
+    public function getAllCourses()
+    {
+        $allc=array();
+        $records = $this->FileCourse->AllContents();
+
+        for($i=0; $i<count($records);$i++)
+        {
+            $ar=explode($this->FileCourse->getSeparator(),$records[$i]);
+            $allc[$i]=$this->getOneCourse($ar[0]);
+        }
+
+        return $allc;
+
     }
 
     public function getOneCourse($ID)
     {
         $rec = $this->FileCourse->getLineByID($ID);
         $ar = explode($this->FileCourse->getSeparator(),$rec);
-        $this->ID = $ar[0];
-        $this->name = $ar[1];
-        $this->Hour = $ar[2];
-        $this->HourPrice = $ar[3];
 
-        return $this;
+        $c=new Course();
+        $c->ID = $ar[0];
+        $c->name = $ar[1];
+        $c->Hour = $ar[2];
+        $c->HourPrice = $ar[3];
+        
+
+        return $c;
     }
 
     public function getHour()
@@ -62,8 +79,10 @@ class Course extends InID
 }
 
 $c = new Course();
-$c->FileCourse = new filemanager();
-$c->FileCourse->setFilenames("courses.txt");
-$c->getOneCourse(2);
-echo $c->name;
+$ac = $c->getAllCourses();
+for($i=0;$i<count($ac);$i++)
+{
+    echo $ac[$i]->GetHourPrice()." ".$ac[$i]->name."</br>";
+}
+
 ?>
