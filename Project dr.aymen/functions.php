@@ -13,7 +13,7 @@ class filemanager
     function remove_dataFile($Line)
     {
         $contents = file_get_contents($this->Filenames);
-        $contents = str_replace($Line, "", $contents);
+        $contents = str_replace($Line, '', $contents);
         file_put_contents($this->Filenames, $contents);
     }
 
@@ -35,7 +35,18 @@ class filemanager
 
     function getLineByID($ID)
     {
-        $file = fopen($)
+        $file = fopen($this->Filenames,"r");
+        while(!feof($file))
+        {
+            $line = fgets($file);
+            $arr = explode($this->Separator,$line);
+
+            if($arr[0] > 0 && $arr[0] == $ID)
+            {
+                return $line;
+            }
+        }
+        return "";
     }
 
     function AllContents()

@@ -3,6 +3,7 @@
 class InID
 {
     private $ID;
+    public $name;
 
     
     public function getID()
