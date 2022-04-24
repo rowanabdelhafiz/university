@@ -8,15 +8,15 @@ class Admissions extends user
     protected $userid_type=null;
     function __construct(){
         $this->filemanagerobj=new FileManager();
-        $this->filemanager->setFilenames("user.txt");
-        $this->filemanager->setSeparator("~");
+        $this->filemanagerobj->setFilenames("user.txt");
+        $this->filemanagerobj->setSeparator("~");
     }
     public function store_userData()
     {
         //id[0]~usertype_id[1]~name[2]~password[3]~phonenumber[4]~date[5]~faculity_id[6]~email[7]~
-        $s=$this->filemanager->get_separator;
+        $s=$this->filemanagerobj->getSeparator();
         $email=$this->getEmail()."@hel.eg";
-        $id=$this->filemanagerobj->get_id($s)+1;
+        $id=$this->filemanagerobj->getId($s)+1;
         $record=$id.$s.$this->getUserid_type().$s.$this->getName().$s.$this->getPassword().$s.$this->getPhone_number().$s.$this->getDate_of_birthday().$s.$this->getFaculity_id().$s.$email;
         $this->filemanagerobj->store_dataFile($record);
     }
