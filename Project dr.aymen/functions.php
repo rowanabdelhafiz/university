@@ -33,6 +33,11 @@ class filemanager
         }
     }
 
+    function getLineByID($ID)
+    {
+        $file = fopen($)
+    }
+
     function AllContents()
     {
         $file = fopen($this->Filenames,"r");

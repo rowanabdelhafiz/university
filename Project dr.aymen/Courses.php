@@ -1,9 +1,11 @@
 <?php
 
-class Course
+class Course extends InID
 {
     protected $Hour = 0;
     protected $HourPrice = 0;
+
+    
 
     public function getHour()
     {
