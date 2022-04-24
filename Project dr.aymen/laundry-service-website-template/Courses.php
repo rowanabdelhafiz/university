@@ -31,9 +31,7 @@ class Course extends InID
         for($i=0; $i<count($records);$i++)
         {
             $ar=explode($this->FileCourse->getSeparator(),$records[$i]);
-            $allc[$i]=$this->getOneCourse($ar[0]);
-            echo $allc[$i]->ID."</br>";
-            
+            $allc[$i]=$this->getOneCourse($ar[0]);            
         }
         return $allc;
 
@@ -88,9 +86,9 @@ class Course extends InID
 }
 
 $c = new Course();
-//$c->name = "CS224";
+//$c->name = "MCOM204";
 //$c->setHour(3);
-//$c->setHourPrice("1700");
+//$c->setHourPrice("1100");
 //$c->storeCourse();
 $ac = $c->getAllCourses();
 echo $ac[0]->getID()."</br>";
