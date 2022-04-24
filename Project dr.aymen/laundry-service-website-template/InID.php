@@ -8,8 +8,10 @@ class InID
     
     public function getID()
     {
+        echo("Good</br>");
         if($this->ID > 0)
         {
+            echo $this->ID."</br>";
             return $this->ID;
         }
     }
