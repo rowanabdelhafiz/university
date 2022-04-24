@@ -23,6 +23,38 @@ class Course extends InID
         $this->FileCourse->store_dataFile($record);
     }
 
+    public function updateCourse($ID, $pos, $value)
+    {
+        $records = $this->FileCourse->allContents();
+
+        for($i=0;$i<count($records);$i++)
+        {
+            $ar = explode($this->FileCourse->getSeparator(),$records[$i]);
+            
+            if($ID == $ar[0])
+            {
+                $ar[$pos] = $value;
+
+                $nL="";
+                for($j=0;$j<count($ar);$j++)
+                {
+                    $nL .= $ar[$j];
+                    if($j < count($ar) - 1)
+                    {
+                        $nL.=$this->FileCourse->getSeparator();
+                    }
+                    else
+                    {
+                        //$nL.="\r\n";
+                    }
+                }
+
+                $this->FileCourse->update_dataFile($records[$i],$nL);
+                break;
+            }
+        }
+    }
+
     public function removeCourse($ID)
     {
         $records = $this->FileCourse->AllContents();
@@ -101,6 +133,7 @@ class Course extends InID
 }
 
 $c = new Course();
+$c->updateCourse(6,1,"CS214");
 //$c->removeCourse(1);
 //$c->name = "MCOM204";
 //$c->setHour(3);
