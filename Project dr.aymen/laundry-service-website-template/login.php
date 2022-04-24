@@ -90,7 +90,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="control-group">
-                                        <input  class="form-control" type="em" placeholder="password" name="Password" required="required" data-validation-required-message="Please enter your password" />
+                                        <input  class="form-control" type="em" placeholder="password" name="Pass" required="required" data-validation-required-message="Please enter your password" />
                                         <p class="help-block text-danger"></p>
                                     </div>
                                 </div>

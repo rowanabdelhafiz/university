@@ -1,11 +1,12 @@
 <?php
 include_once("functions.php");
+include_once("login.php");
 extract($_POST);
 $object=new filemanager();
-$object->check_login($id , $password);
-if($object->check_login($id , $password))
+$object->setFilenames("user.txt");
+if($object->check_login($id , $Pass))
 {
-    //header("Location:admissions.php");
+    header("Location:admissions.php");
 
 }
 
