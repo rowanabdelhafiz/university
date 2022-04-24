@@ -9,21 +9,18 @@ class filemanager
         fwrite($file,$data."\r\n");
         fclose($file);
     }
-
     function remove_dataFile($Line)
     {
         $contents = file_get_contents($this->Filenames);
         $contents = str_replace($Line, '', $contents);
         file_put_contents($this->Filenames, $contents);
     }
-
     function update_dataFile($OLine,$NLine)
     {
         $contents = file_get_contents($this->Filenames);
         $contents = str_replace($OLine, $NLine, $contents);
         file_put_contents($this->Filenames, $contents);
     }
-
     function tableData()
     {
         $file = fopen($this->Filenames,"r");
@@ -32,6 +29,7 @@ class filemanager
 
         }
     }
+<<<<<<< HEAD
 
     function getLineByID($ID)
     {
@@ -49,6 +47,8 @@ class filemanager
         return "";
     }
 
+=======
+>>>>>>> 6266f4669b7bd8ccb148bcef5963a63058716f3c
     function AllContents()
     {
         $file = fopen($this->Filenames,"r");
@@ -67,7 +67,6 @@ class filemanager
         }
         return $results;
     }
-
     function getId()
     {
         $file = fopen($this->Filenames, "r+")or die("Unable to open file!");
@@ -89,21 +88,6 @@ class filemanager
          }
          return $lastid;
     }
-    
-    function check_accept(&$line_per,$faculity,$filename)
-    {
-        $file = fopen($filename, "r+")or die("Unable to open file!");
-        while (!feof($file)) {
-            $linee=fgets($file);
-            $ArrayResult = explode($this->Separator, $linee);
-            if($linee && $ArrayResult[0]==$faculity)
-            {
-                $line_per= $ArrayResult[2];
-            }      
-         }
-        fclose($file); 
-    }
-
     public function getFilenames()
     {
         if($this->Filenames!="")
@@ -111,7 +95,6 @@ class filemanager
             return $this->Filenames;
         }
     }
-
     public function setFilenames($Filenames)
     {
         if($Filenames!="")
@@ -121,7 +104,6 @@ class filemanager
         
         return $this;
     }
-
     public function getSeparator()
     {
         if($this->Separator!=null)
