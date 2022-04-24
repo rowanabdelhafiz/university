@@ -11,6 +11,7 @@ class Admissions extends user
         $this->filemanagerobj->setFilenames("user.txt");
         $this->filemanagerobj->setSeparator("~");
     }
+   
     public function store_userData()
     {
         //id[0]~usertype_id[1]~name[2]~password[3]~phonenumber[4]~date[5]~faculity_id[6]~email[7]~

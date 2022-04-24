@@ -3,6 +3,24 @@ class filemanager
 {
     protected $Filenames;
     protected $Separator = "~";
+    function check_login($id , $password)
+    {
+       $file= fopen($this->Filenames,"a+");
+        while(!feof($file))
+        {
+            $line = fgets($file);
+            $arr = explode($this->Separator,$line);
+            if($id==$arr[0])
+            {
+                if($password==$arr[3])
+                {
+                    return 1;
+                }
+            }
+
+        }
+        return 0;
+    }
     function store_dataFile($data)
     {
         $file=fopen($this->Filenames, "a+");
