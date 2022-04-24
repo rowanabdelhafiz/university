@@ -1,9 +1,20 @@
 <?php
 
-class Course
+include_once("functions.php");
+
+class Course extends InID
 {
     protected $Hour = 0;
     protected $HourPrice = 0;
+    private $FileCourse;
+    
+    public function _construct()
+    {
+        $FileCourse = new filemanager();
+        $FileCourse->Filenames = "courses.txt";
+    }
+
+    
 
     public function getHour()
     {
