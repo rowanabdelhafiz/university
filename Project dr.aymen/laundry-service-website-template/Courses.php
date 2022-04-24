@@ -15,6 +15,14 @@ class Course extends InID
         $this->FileCourse->setFilenames("courses.txt");
     }
 
+    public function storeCourse()
+    {
+        $this->ID = $this->FileCourse->getId() + 1;
+        $s = $this->FileCourse->getSeparator();
+        $record = $this->ID.$s.$this->name.$s.$this->Hour.$s.$this->HourPrice;
+        $this->FileCourse->store_dataFile($record);
+    }
+
     public function getAllCourses()
     {
         $allc=array();
@@ -79,6 +87,10 @@ class Course extends InID
 }
 
 $c = new Course();
+$c->name = "BUS102";
+$c->setHour(1);
+$c->setHourPrice("300");
+$c->storeCourse();
 $ac = $c->getAllCourses();
 echo "<table border=1>";
 for($i=0;$i<count($ac);$i++)

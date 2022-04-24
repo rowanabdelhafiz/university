@@ -6,7 +6,7 @@ class filemanager
     function store_dataFile($data)
     {
         $file=fopen($this->Filenames, "a+");
-        fwrite($file,$data."\r\n");
+        fwrite($file,"\r\n".$data);
         fclose($file);
     }
     function remove_dataFile($Line)
