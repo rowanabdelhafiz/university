@@ -41,7 +41,7 @@ class filemanager
     }
     function tableData()
     {
-        $file = fopen($this->Filenames,"r");
+        $file = fopen($this->Filenames,"r+");
         while(!feof($file))
         {
 

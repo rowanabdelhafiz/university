@@ -3,7 +3,6 @@ include_once("class_user.php");
 include_once("functions.php");
 class Admissions extends user
 {
-    protected $ScoreNeeded=-1;
     protected $faculity_id=null;
     protected $userid_type=null;
     function __construct(){
@@ -22,22 +21,6 @@ class Admissions extends user
         $this->setpassword($pass);
         $record=$id.$s.$this->getUserid_type().$s.$this->getName().$s.$this->getPassword().$s.$this->getPhone_number().$s.$this->getDate_of_birthday().$s.$this->getFaculity_id().$s.$email;
         $this->filemanagerobj->store_dataFile($record);
-    }
-    public function getScoreNeeded()
-    {
-        if($this->setScoreNeeded!=-1)
-        {
-            return $this->ScoreNeeded;
-        }
-    }
-    public function setScoreNeeded($ScoreNeeded)
-    {
-        if($ScoreNeeded==-1)
-        {
-            $this->ScoreNeeded = $ScoreNeeded;
-            return $this;
-        }
-        
     }
     public function getFaculity_id()
     {
