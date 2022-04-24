@@ -43,10 +43,6 @@ class Course extends InID
                     {
                         $nL.=$this->FileCourse->getSeparator();
                     }
-                    else
-                    {
-                        //$nL.="\r\n";
-                    }
                 }
 
                 $this->FileCourse->update_dataFile($records[$i],$nL);
