@@ -77,8 +77,21 @@ class Register extends InID
 
     function getOneRegister($ID)
     {
+        $rec = $this->FileRegister->getLineByID($ID);
+        $arr = explode($this->FileRegister->getSeparator(),$rec);
+
+
         $r = new Register();
-        
+        $r->ID = $arr[0];
+        $r->StdID = $arr[1];
+        $r->Date = $arr[2];
+        $r->totalHr = $arr[3];
+        $r->totalPriceHr = $arr[4];
+
+        echo $r->StdID;
+        exit(0);
+
+        return $r;
     }
 
     public function getStID()
@@ -182,8 +195,10 @@ class Register extends InID
 $r = new Register();
 $r->setStID(2);
 $r->setDate("3/5/2022");
-$r->storeRegister();
+//$r->storeRegister();
 
+$rObj = $r->getOneRegister(2);
 
+echo $rObj->ID."</br>".$rObj->getStID()."</br>".$rObj->getDate();
 
 ?>
