@@ -29,7 +29,6 @@ class filemanager
 
         }
     }
-<<<<<<< HEAD
 
     function getLineByID($ID)
     {
@@ -47,8 +46,6 @@ class filemanager
         return "";
     }
 
-=======
->>>>>>> 6266f4669b7bd8ccb148bcef5963a63058716f3c
     function AllContents()
     {
         $file = fopen($this->Filenames,"r");
