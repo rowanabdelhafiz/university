@@ -1,5 +1,6 @@
 <?php 
 include_once("class_user.php");
+include_once("functions.php");
 class Admissions extends user
 {
     protected $ScoreNeeded=-1;
@@ -7,8 +8,8 @@ class Admissions extends user
     protected $userid_type=null;
     function __construct(){
         $this->filemanagerobj=new FileManager();
-        $this->filemanager->setfilename="user.txt";
-        $this->filemanager->setSeparator="~";
+        $this->filemanager->setFilenames("user.txt");
+        $this->filemanager->setSeparator("~");
     }
     public function store_userData()
     {
