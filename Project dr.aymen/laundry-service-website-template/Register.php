@@ -75,9 +75,10 @@ class Register extends InID
      */ 
     public function setStID($StID)
     {
-        $this->StID = $StID;
-
-        return $this;
+        if($StID > 0)
+        {
+            $this->StID = $StID;
+        }        
     }
 
     /**
@@ -85,7 +86,10 @@ class Register extends InID
      */ 
     public function getDate()
     {
-        return $this->Date;
+        if($this->Date != null)
+        {
+            return $this->Date;
+        }
     }
 
     /**
@@ -95,9 +99,10 @@ class Register extends InID
      */ 
     public function setDate($Date)
     {
-        $this->Date = $Date;
-
-        return $this;
+        if($Date != null)
+        {
+            $this->Date = $Date;
+        }
     }
 
     /**
@@ -105,7 +110,10 @@ class Register extends InID
      */ 
     public function getTotalHr()
     {
-        return $this->totalHr;
+        if($this->totalHr >= 0)
+        {
+            return $this->totalHr;
+        }
     }
 
     /**
@@ -115,7 +123,11 @@ class Register extends InID
      */ 
     public function setTotalHr($totalHr)
     {
-        $this->totalHr = $totalHr;
+        if($totalHr >= 0)
+        {
+            $this->totalHr = $totalHr;
+        }
+        
 
         return $this;
     }
@@ -125,7 +137,10 @@ class Register extends InID
      */ 
     public function getTotalPriceHr()
     {
-        return $this->totalPriceHr;
+        if($this->totalPriceHr >= 0)
+        {
+            return $this->totalPriceHr;
+        }      
     }
 
     /**
@@ -135,9 +150,10 @@ class Register extends InID
      */ 
     public function setTotalPriceHr($totalPriceHr)
     {
-        $this->totalPriceHr = $totalPriceHr;
-
-        return $this;
+        if($totalPriceHr)
+        {
+            $this->totalPriceHr = $totalPriceHr;
+        }    
     }
 }
 
