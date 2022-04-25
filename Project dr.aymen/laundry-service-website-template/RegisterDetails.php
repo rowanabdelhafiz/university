@@ -25,7 +25,6 @@ class RegisterDetails extends InID
         $this->ID = $this->FileObj->getId() + 1;
         $s = $this->FileObj->getSeparator();
 
-        echo $this->Crs->getHourPrice()."and?";
         $record = $this->ID.$s.$this->rgID.$s.$this->CrsID.$s.$this->Crs->getHour().$s.$this->Crs->getHourPrice();
         $this->FileObj->store_dataFile($record);
     }
