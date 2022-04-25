@@ -69,7 +69,7 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
                     <div class="navbar-nav ml-auto py-0">
-                        <a href="index.html" class="nav-item nav-link">Update</a>
+                        <a href="update_choose.html" class="nav-item nav-link">Update</a>
                         <a href="delete_user.html" class="nav-item nav-link">Delete</a>
                         <a href="search_id.html" class="nav-item nav-link">Search</a>
                         <a href="admissions.php" class="nav-item nav-link">view</a>
