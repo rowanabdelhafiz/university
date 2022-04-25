@@ -26,7 +26,6 @@ class Course extends InID
     public function updateCourse($ID, $pos, $value)
     {
         $records = $this->FileObj->allContents();
-
         for($i=0;$i<count($records);$i++)
         {
             $ar = explode($this->FileObj->getSeparator(),$records[$i]);
@@ -38,14 +37,12 @@ class Course extends InID
                 $nL="";
                 for($j=0;$j<count($ar);$j++)
                 {
-                    $nL .= $ar[$j];
+                    $nL.= $ar[$j];
                     if($j < count($ar) - 1)
                     {
                         $nL.=$this->FileObj->getSeparator();
                     }
-
                 }
-
                 $this->FileObj->update_dataFile($records[$i],$nL);
                 break;
             }
@@ -91,8 +88,6 @@ class Course extends InID
         $c->name = $ar[1];
         $c->Hour = $ar[2];
         $c->HourPrice = $ar[3];
-        
-
         return $c;
     }
 

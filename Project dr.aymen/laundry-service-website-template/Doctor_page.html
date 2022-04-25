@@ -67,12 +67,23 @@
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
+                    <div class="navbar-nav ml-auto py-0">
+                        <a href="update_choose.html" class="nav-item nav-link">Update_course</a>
+                        <a href="delete_user.html" class="nav-item nav-link">Delete_course</a>
+                        <a href="delete_user.html" class="nav-item nav-link">add_course</a>
+                        <a href="delete_user.html" class="nav-item nav-link">drop_course</a>
+                        <a href="search_id.html" class="nav-item nav-link">Search</a>
+                        <a href="Doctor_page.html" class="nav-item nav-link">view</a>
+                        <a href="login.php" class="nav-item nav-link active">log out</a>
+                    </div>
                 </div>
             </nav>
         </div>
     </div>
     <!-- Navbar End -->
     <br>
+
     <!-- Contact Start -->
     <div class="container-fluid py-5">
         <div class="container" style="max-width: 900px;">
@@ -80,23 +91,10 @@
                 <div class="col-12">
                     <div class="contact-form">
                         <div id="success"></div>
-                        <form action="update_user_data.php" method="POST" class="login-email">
-                            <div class="form-row">
-                                <select name="new_data" class="col-md-6" style="opacity: 0.5; border-radius: 25px;"required>
-                                    <option value="1">engineering</option>
-                                    <option value="2">computer science</option>
-                                    <option value="3">biotecnology</option>
-                                    <option value="4">dentist</option>
-                                    <option value="5">masscom</option>
-                                    <option value="6">bussiness</option>
-                                     <option value="7">pharmacy</option>
-                                     <option value="8">art&design</option>
-                                     <option value="9">languages</option>
-                                      </select>
-                            <div>
-                                <br>
-                                <button class="btn btn-primary py-3 px-5" name="submit" class="btn"  >Enter</button>
-                            </div>
+                        <form action="registration.php" method="POST" class="login-email">
+                            <?php
+                            //////////////////////
+                            ?>
                         </form>
                     </div>
                 </div>

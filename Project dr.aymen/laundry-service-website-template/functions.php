@@ -18,10 +18,10 @@ class filemanager
                     return 1;
                 }
             }
-
         }
         return 0;
     }
+
     function store_dataFile($data)
     {
         $file=fopen($this->Filenames, "a+");
@@ -39,11 +39,19 @@ class filemanager
             {
                 return $line;
             }
-
         }
         return 0;
-
-
+    }
+    function update_pos($line,$pos, $value)
+    {
+        $array= explode($this->Separator,$line);
+        $array[$pos]= $value;
+        $l="";
+        for($i=0;$i<count($array);$i++)
+        {
+            $l+=$array[$i];
+        }
+        return $l;
     }
     function remove_dataFile($Line)
     {
