@@ -169,7 +169,7 @@ class RegisterDetails extends InID
     }
 }
 
-$rD = new RegisterDetails();
+/*$rD = new RegisterDetails();
 $rD->setRgID(2);
 
 $rD->setCrsID(4);
@@ -185,5 +185,5 @@ for($i=0;$i<count($obrd);$i++)
     echo "<tr><td>".$obrd[$i]->ID."</td><td>".$obrd[$i]->getRgID()."</td><td>".$obrd[$i]->GetCrsID()."</td><td>".$obrd[$i]->getCrs()->getHour()."</td><td>".$obrd[$i]->getCrs()->getHourPrice()."</td></tr>";
 }
 echo "</table>"
-
+*/
 ?>

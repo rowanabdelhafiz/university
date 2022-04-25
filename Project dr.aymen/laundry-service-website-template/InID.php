@@ -2,8 +2,8 @@
 
 class InID
 {
-    private $ID;
-    private $name;
+    protected $ID;
+    protected $name;
 
     
     public function getID()

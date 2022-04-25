@@ -2,6 +2,7 @@
 
 include_once("InID.php");
 include_once("functions.php");
+include_once("RegisterDetails.php");
 
 class Register extends InID
 {
@@ -9,12 +10,14 @@ class Register extends InID
     private $Date;
     private $totalHr = 0;
     private $totalPriceHr = 0; 
+    private $RegisterDetails;
     private $FileObj;
 
     function __construct()
     {
         $this->FileObj = new filemanager();
         $this->FileObj->setFilenames("Register.txt");
+        $this->RegisterDetails = [];
     }
 
     function storeRegister()
@@ -26,7 +29,43 @@ class Register extends InID
         $this->FileObj->store_dataFile($record);
     }
 
-    function updateRegister($ID, $pos, $value)
+    function updateRegister()
+    {
+        $Rec = $this->FileObj->AllContents();
+        for($i=0; $i< count($Rec);$i++)
+        {
+            $ar = explode($this->FileObj->getSeparator(),$Rec[$i]);
+
+            if($this->ID == $ar[0])
+            {
+                if($this->StID != "")
+                {
+                    $ar[1] = $this->StID;
+                }
+
+                if($this->Date != "")
+                {
+                    $ar[2] = $this->Date;
+                }
+
+
+                $nL ="";
+                for($j=0;$j< count($ar); $j++)
+                {
+                    $nL.=$ar[$j];
+                    if($j < count($ar) - 1)
+                    {
+                        $nL.=$this->FileObj->getSeparator();
+                    }
+                }
+
+                $this->FileObj->update_dataFile($Rec[$i],$nL);
+                break;
+            }
+        }
+    }
+
+    function updateTotalOfRegister($ID, $pos, $value)
     {
         $Rec = $this->FileObj->AllContents();
         for($i=0; $i< count($Rec);$i++)
@@ -53,12 +92,14 @@ class Register extends InID
         }
     }
 
-    function remove_register($ID)
+    function remove_register()
     {
         $Rf = $this->FileObj->AllContents();
         for($i = 0; $i< count($Rf); $i++)
         {
             $ar1 = explode($this->FileObj->getSeparator(),$Rf[$i]);
+
+            
 
             /*if($ar1[1] == $StdId)
             {
@@ -124,6 +165,20 @@ class Register extends InID
         $r->Date = $arr[2];
         $r->totalHr = $arr[3];
         $r->totalPriceHr = $arr[4];
+
+        $obj = new RegisterDetails();
+        $arr2 = [];
+        $arr2 = $obj->getAllRegisterDetails();
+
+        $j=0;
+        for($i=0;$i<count($arr2);$i++)
+        {
+            if($arr2[$i]->GetRgID() == $r->ID)
+            {
+                $r->RegisterDetails[$j] = $arr2[$i];
+                $j++;
+            }
+        }
 
         return $r;
     }
@@ -224,20 +279,63 @@ class Register extends InID
             $this->totalPriceHr = $totalPriceHr;
         }    
     }
+
+    /**
+     * Get the value of RegisterDetails
+     */ 
+    public function getRegisterDetails()
+    {
+        if($this->RegisterDetails != null)
+        {
+            /*if($i == -1)
+            {
+               ;
+            }else
+            {
+                return $this->RegisterDetails[$i];
+            }*/
+            return $this->RegisterDetails;
+        }
+    }
+
+    /**
+     * Set the value of RegisterDetails
+     *
+     * @return  self
+     */ 
+    public function setRegisterDetails($RegisterDetails)
+    {
+        if($RegisterDetails != null)
+        {
+            $this->RegisterDetails = $RegisterDetails;
+        }
+    }
 }
 
-$r = new Register();
+/*$r = new Register();
 //$r->setStID(6);
 //$r->setDate("3/5/2022");
 //$r->storeRegister();
 //$r->updateRegister(1,1,3);
 
-$rObjs = $r->getAllRegister();
+$rObjs = $r->getOneRegister(2);
+
+for($i=0;$i<count($rObjs->getRegisterDetails());$i++)
+{
+    echo $rObjs->getRegisterDetails()[$i]->getCrsID()."</br>";
+}
+
+//echo $rObjs->
+
+/*$rObjs = $r->getAllRegister();
+
 
 echo "<table border=1>";
 for($i=0;$i<count($rObjs);$i++)
 {
-    echo "<tr><td>".$rObjs[$i]->ID."</td><td>".$rObjs[$i]->getStID()."</td><td>".$rObjs[$i]->GetDate()."</td><td>".$rObjs[$i]->GetTotalHr()."</td><td>".$rObjs[$i]->getTotalPriceHr()."</td></tr>";
+    echo "<tr><td>".$rObjs[$i]->getID()."</td><td>".$rObjs[$i]->getStID()."</td><td>".$rObjs[$i]->GetDate()."</td><td>".$rObjs[$i]->GetTotalHr()."</td><td>".$rObjs[$i]->getTotalPriceHr()."</td></tr>";
 }
-echo "</table>"
+echo "</table>"*/
+
+
 ?>
