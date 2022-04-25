@@ -129,7 +129,7 @@ class Course extends InID
     }
 }
 
-$c = new Course();
+/*$c = new Course();
 $c->updateCourse(6,1,"CS214");
 //$c->removeCourse(1);
 //$c->name = "MCOM204";
@@ -144,5 +144,5 @@ for($i=0;$i<count($ac);$i++)
     echo "<tr><td>".$ac[$i]->ID."</td><td>".$ac[$i]->name."</td><td>".$ac[$i]->GetHour()."</td><td>".$ac[$i]->GetHourPrice()."</td></tr>";
 }
 echo "</table>"
-
+*/
 ?>
