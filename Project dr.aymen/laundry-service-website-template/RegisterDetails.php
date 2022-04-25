@@ -44,7 +44,35 @@ class RegisterDetails extends InID
         
     }
 
+    public function getAllRegisterDetails()
+    {
+        $allrd = [];
+        $records = $this->FileObj->AllContents();
 
+        for($i = 0; $i < count($records); $i++)
+        {
+            $ar = explode($this->FileObj->getSeparator(),$records[$i]);
+            $allrd[$i] = $this->getOneRegisterDetails($ar[0]);
+        }
+
+        return $allrd;
+    }
+
+    public function getOneRegisterDetails($ID)
+    {
+        $rec = $this->FileObj->getLineByID($ID);
+        $ar = explode($this->FileObj->getSeparator(),$rec);
+        
+        $RD = new RegisterDetails();
+        $RD->ID = $ar[0];
+        $RD->rgID = $ar[1];
+        $RD->CrsID = $ar[2];
+
+        $obj = new Course();
+        $RD->Crs = $obj->getOneCourse($this->CrsID);
+
+        return $RD;
+    }
 
     public function getRgID()
     {
@@ -123,5 +151,14 @@ $rD->setRgID(2);
 $rD->setCrsID(2);
 
 //$rD->storeRegisterDetails();
+
+$obrd = $rD->getAllRegisterDetails();
+
+echo "<table border=1>";
+for($i=0;$i<count($obrd);$i++)
+{
+    echo "<tr><td>".$obrd[$i]->ID."</td><td>".$obrd[$i]->getRgID()."</td><td>".$obrd[$i]->GetCrsID()."</td><td>".$obrd[$i]->getCrs()->getHour()."</td><td>".$obrd[$i]->getCrs()->getHourPrice()."</td></tr>";
+}
+echo "</table>"
 
 ?>
