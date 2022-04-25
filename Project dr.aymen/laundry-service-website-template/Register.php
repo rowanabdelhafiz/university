@@ -9,29 +9,29 @@ class Register extends InID
     private $Date;
     private $totalHr = 0;
     private $totalPriceHr = 0; 
-    private $FileRegister;
+    private $FileObj;
 
     function __construct()
     {
-        $this->FileRegister = new filemanager();
-        $this->FileRegister->setFilenames("Register.txt");
+        $this->FileObj = new filemanager();
+        $this->FileObj->setFilenames("Register.txt");
     }
 
     function storeRegister()
     {
-        $this->ID = $this->FileRegister->getId() + 1;
-        $s = $this->FileRegister->getSeparator();
+        $this->ID = $this->FileObj->getId() + 1;
+        $s = $this->FileObj->getSeparator();
 
         $record = $this->ID.$s.$this->StID.$s.$this->Date.$s.$this->totalHr.$s.$this->totalPriceHr;
-        $this->FileRegister->store_dataFile($record);
+        $this->FileObj->store_dataFile($record);
     }
 
     function remove_register($ID)
     {
-        $Rf = $this->FileRegister->AllContents();
+        $Rf = $this->FileObj->AllContents();
         for($i = 0; $i< count($Rf); $i++)
         {
-            $ar1 = explode($this->FileRegister->getSeparator(),$Rf[$i]);
+            $ar1 = explode($this->FileObj->getSeparator(),$Rf[$i]);
 
             /*if($ar1[1] == $StdId)
             {
@@ -75,11 +75,11 @@ class Register extends InID
     function getAllRegister()
     {
         $allr = [];
-        $records = $this->FileRegister->AllContents();
+        $records = $this->FileObj->AllContents();
 
         for($i=0; $i<count($records);$i++)
         {
-            $ar=explode($this->FileRegister->getSeparator(),$records[$i]);
+            $ar=explode($this->FileObj->getSeparator(),$records[$i]);
             $allr[$i]=$this->getOneRegister($ar[0]);         
         }
         return $allr;
@@ -87,8 +87,8 @@ class Register extends InID
 
     function getOneRegister($ID)
     {
-        $rec = $this->FileRegister->getLineByID($ID);
-        $arr = explode($this->FileRegister->getSeparator(),$rec);
+        $rec = $this->FileObj->getLineByID($ID);
+        $arr = explode($this->FileObj->getSeparator(),$rec);
 
 
         $r = new Register();

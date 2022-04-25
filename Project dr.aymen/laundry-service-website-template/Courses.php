@@ -7,29 +7,29 @@ class Course extends InID
 {
     protected $Hour = 0;
     protected $HourPrice = 0;
-    private $FileCourse;
+    private $FileObj;
     
     public function __construct()
     {
-        $this->FileCourse = new filemanager();
-        $this->FileCourse->setFilenames("courses.txt");
+        $this->FileObj = new filemanager();
+        $this->FileObj->setFilenames("courses.txt");
     }
 
     public function storeCourse()
     {
-        $this->ID = $this->FileCourse->getId() + 1;
-        $s = $this->FileCourse->getSeparator();
+        $this->ID = $this->FileObj->getId() + 1;
+        $s = $this->FileObj->getSeparator();
         $record = $this->ID.$s.$this->name.$s.$this->Hour.$s.$this->HourPrice;
-        $this->FileCourse->store_dataFile($record);
+        $this->FileObj->store_dataFile($record);
     }
 
     public function updateCourse($ID, $pos, $value)
     {
-        $records = $this->FileCourse->allContents();
+        $records = $this->FileObj->allContents();
 
         for($i=0;$i<count($records);$i++)
         {
-            $ar = explode($this->FileCourse->getSeparator(),$records[$i]);
+            $ar = explode($this->FileObj->getSeparator(),$records[$i]);
             
             if($ID == $ar[0])
             {
@@ -41,12 +41,12 @@ class Course extends InID
                     $nL .= $ar[$j];
                     if($j < count($ar) - 1)
                     {
-                        $nL.=$this->FileCourse->getSeparator();
+                        $nL.=$this->FileObj->getSeparator();
                     }
 
                 }
 
-                $this->FileCourse->update_dataFile($records[$i],$nL);
+                $this->FileObj->update_dataFile($records[$i],$nL);
                 break;
             }
         }
@@ -54,14 +54,14 @@ class Course extends InID
 
     public function removeCourse($ID)
     {
-        $records = $this->FileCourse->AllContents();
+        $records = $this->FileObj->AllContents();
 
         for($i=0; $i<count($records);$i++)
         {
-            $ar=explode($this->FileCourse->getSeparator(),$records[$i]);
+            $ar=explode($this->FileObj->getSeparator(),$records[$i]);
             if($ID == $ar[0])
             {
-               $this->FileCourse->remove_dataFile($records[$i]);
+               $this->FileObj->remove_dataFile($records[$i]);
                break;
             }
         }
@@ -70,11 +70,11 @@ class Course extends InID
     public function getAllCourses()
     {
         $allc=array();
-        $records = $this->FileCourse->AllContents();
+        $records = $this->FileObj->AllContents();
 
         for($i=0; $i<count($records);$i++)
         {
-            $ar=explode($this->FileCourse->getSeparator(),$records[$i]);
+            $ar=explode($this->FileObj->getSeparator(),$records[$i]);
             $allc[$i]=$this->getOneCourse($ar[0]);            
         }
         return $allc;
@@ -83,8 +83,8 @@ class Course extends InID
 
     public function getOneCourse($ID)
     {
-        $rec = $this->FileCourse->getLineByID($ID);
-        $ar = explode($this->FileCourse->getSeparator(),$rec);
+        $rec = $this->FileObj->getLineByID($ID);
+        $ar = explode($this->FileObj->getSeparator(),$rec);
 
         $c=new Course();
         $c->ID = $ar[0];
