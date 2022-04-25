@@ -28,6 +28,23 @@ class filemanager
         fwrite($file,"\r\n".$data);
         fclose($file);
     }
+    function getids($ID)
+    {
+        $file=fopen($this->Filenames, "r+");
+        while(!feof($file))
+        {
+            $line = fgets($file);
+            $arr = explode($this->Separator,$line);
+            if($ID==$arr[0])
+            {
+                return $line;
+            }
+
+        }
+        return 0;
+
+
+    }
     function remove_dataFile($Line)
     {
         $contents = file_get_contents($this->Filenames);

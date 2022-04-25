@@ -1,14 +1,30 @@
 <?php
 
 include_once("InID.php");
+include_once("functions.php");
 
 class Register extends InID
 {
     private $StID;
     private $Date;
-    private $totalHr;
-    private $totalPriceHr; 
+    private $totalHr = 0;
+    private $totalPriceHr = 0; 
+    private $FileRegister;
 
+    function __construct()
+    {
+        $this->FileRegister = new filemanager();
+        $this->FileRegister->setFilenames("Register.txt");
+    }
+
+    function storeRegister()
+    {
+        $this->ID = $this->FileRegister->getId() + 1;
+        $s = $this->FileRegister->getSeparator();
+
+        $record = $this->ID.$s.$this->StID.$s.$this->Date.$s.$this->totalHr.$s.$this->totalPriceHr;
+        $this->FileRegister->store_dataFile($record);
+    }
 
     function remove_register($ID)
     {
@@ -57,6 +73,22 @@ class Register extends InID
                 break;
             }*/
         }
+    }
+
+    function getOneRegister($ID)
+    {
+        $rec = $this->FileRegister->getLineByID($ID);
+        $arr = explode($this->FileRegister->getSeparator(),$rec);
+
+
+        $r = new Register();
+        $r->ID = $arr[0];
+        $r->StID = $arr[1];
+        $r->Date = $arr[2];
+        $r->totalHr = $arr[3];
+        $r->totalPriceHr = $arr[4];
+
+        return $r;
     }
 
     public function getStID()
@@ -156,5 +188,14 @@ class Register extends InID
         }    
     }
 }
+
+$r = new Register();
+//$r->setStID(6);
+//$r->setDate("3/5/2022");
+//$r->storeRegister();
+
+$rObj = $r->getOneRegister(1);
+
+echo $rObj->ID."</br>".$rObj->getStID()."</br>".$rObj->getDate();
 
 ?>
