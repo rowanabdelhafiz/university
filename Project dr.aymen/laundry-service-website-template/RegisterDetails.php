@@ -44,6 +44,11 @@ class RegisterDetails extends InID
         
     }
 
+    public function removeRegisterDetails($ID)
+    {
+        
+    }
+
     public function getAllRegisterDetails()
     {
         $allrd = [];
