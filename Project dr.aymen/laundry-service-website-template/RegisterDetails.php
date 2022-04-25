@@ -175,6 +175,7 @@ $rD->setRgID(2);
 $rD->setCrsID(4);
 
 //$rD->storeRegisterDetails();
+$rD->removeRegisterDetails(3,0);
 
 $obrd = $rD->getAllRegisterDetails();
 
