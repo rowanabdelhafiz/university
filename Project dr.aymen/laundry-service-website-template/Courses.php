@@ -30,7 +30,7 @@ class Course extends InID
         {
             $ar = explode($this->FileObj->getSeparator(),$records[$i]);
             
-            if($ID == $ar[0])
+            if($this->ID == $ar[0])
             {
                 $ar[$pos] = $value;
 
