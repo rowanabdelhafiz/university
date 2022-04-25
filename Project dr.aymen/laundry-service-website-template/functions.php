@@ -62,7 +62,7 @@ class filemanager
         $file = fopen($this->Filenames,"r+");
         while(!feof($file))
         {
-
+            
         }
     }
 
