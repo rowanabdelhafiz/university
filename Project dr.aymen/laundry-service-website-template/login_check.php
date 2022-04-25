@@ -12,8 +12,4 @@ if($object->check_login($id , $Pass))
 {
     echo "Not Found";
 }
-
-
-
-
 ?>

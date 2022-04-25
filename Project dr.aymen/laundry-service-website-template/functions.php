@@ -62,8 +62,16 @@ class filemanager
         $file = fopen($this->Filenames,"r+");
         while(!feof($file))
         {
-            
+            $line= fgets($file);
+            echo "<tr>";
+            $array= explode($this->Separator,$line);
+            for($i=0;$i<count($array);$i++)
+            {
+                echo "<td>".$array[$i]."</td>";
+            }
+            echo "</tr>";
         }
+        fclose($file);
     }
 
     public function getLineByID($ID)

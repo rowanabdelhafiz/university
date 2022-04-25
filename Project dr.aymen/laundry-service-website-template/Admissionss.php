@@ -15,18 +15,17 @@ class Admissions extends user
     {
         //id[0]~usertype_id[1]~name[2]~password[3]~phonenumber[4]~date[5]~faculity_id[6]~email[7]~
         $s=$this->filemanagerobj->getSeparator();
-        $email=$this->getEmail()."@hel.eg";
         $id=$this->filemanagerobj->getId($s)+1;
+        $email=$this->getEmail().$id."@hel.eg";
         $pass="hel".$this->getPhone_number();
         $this->setpassword($pass);
-        $record=$id.$s.$this->getUserid_type().$s.$this->getName().$s.$this->getPassword().$s.$this->getPhone_number().$s.$this->getDate_of_birthday().$s.$this->getFaculity_id().$s.$email;
+        $record=$id.$s.$this->getUserid_type().$s.$this->getName().$s.$this->getPassword().$s.$this->getPhone_number().$s.$this->getDate_of_birthday().$s.$this->getFaculity_id().$s.$email.$s;
         $this->filemanagerobj->store_dataFile($record);
     }
     public function getFaculity_id()
     {
         return $this->faculity_id;
     }
-
     public function setFaculity_id($faculity_id)
     {
 
