@@ -7,7 +7,7 @@ include_once("Courses.php");
 class RegisterDetails extends InID
 {
     private $rgID;
-    private $Reg;
+    private $Reg=null;
     private $CrsID;
     private $Crs;
     private $FileObj;
@@ -23,10 +23,20 @@ class RegisterDetails extends InID
     public function storeRegisterDetails()
     {
         $this->ID = $this->FileObj->getId() + 1;
-        $s = $this->FileObj->getSeparator();
 
-        $record = $this->ID.$s.$this->rgID.$s.$this->CrsID.$s.$this->Crs->getHour().$s.$this->Crs->getHourPrice();
-        $this->FileObj->store_dataFile($record);
+        $obj = new Register();
+        $this->Reg = $obj->getOneRegister($this->rgID);
+
+        if($this->Reg != null)
+        {
+            $s = $this->FileObj->getSeparator();
+
+            $record = $this->ID.$s.$this->rgID.$s.$this->CrsID.$s.$this->Crs->getHour().$s.$this->Crs->getHourPrice();
+            $this->FileObj->store_dataFile($record);
+
+            //$this->Reg
+        }
+        
     }
 
     public function getRgID()

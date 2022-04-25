@@ -26,6 +26,33 @@ class Register extends InID
         $this->FileObj->store_dataFile($record);
     }
 
+    function updateRegister($ID, $pos, $value)
+    {
+        $Rec = $this->FileObj->AllContents();
+        for($i=0; $i< count($Rec);$i++)
+        {
+            $ar = explode($this->FileObj->getSeparator(),$Rec[$i]);
+
+            if($ID == $ar[0])
+            {
+                $ar[$pos] = $value;
+
+                $nL ="";
+                for($j=0;$j< count($ar); $j++)
+                {
+                    $nL.=$ar[$j];
+                    if($j < count($ar) - 1)
+                    {
+                        $nL.=$this->FileObj->getSeparator();
+                    }
+                }
+
+                $this->FileObj->update_dataFile($Rec[$i],$nL);
+                break;
+            }
+        }
+    }
+
     function remove_register($ID)
     {
         $Rf = $this->FileObj->AllContents();
@@ -203,6 +230,7 @@ $r = new Register();
 //$r->setStID(6);
 //$r->setDate("3/5/2022");
 //$r->storeRegister();
+$r->updateRegister(1,1,3);
 
 $rObjs = $r->getAllRegister();
 
