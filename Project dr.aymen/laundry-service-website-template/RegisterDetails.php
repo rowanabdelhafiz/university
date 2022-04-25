@@ -44,24 +44,27 @@ class RegisterDetails extends InID
         
     }
 
-    public function removeRegisterDetails($ID,$pos)
+    public function removeRegisterDetails($aD = false)
     {
         $Rf = $this->FileObj->AllContents();
         for($i=0; $i< count($Rf); $i++)
         {
             $ar = explode($this->FileObj->getSeparator(),$Rf[$i]);
 
-            if($ar[$pos] == $ID)
+            if($ar[0] == $this->ID)
             {
-                $obj = new Register();
-                $this->Reg = $obj->getOneRegister($this->rgID);
-
-                $TotalHr = $this->Reg->getTotalHr() - $this->Crs->getHour();
-                $this->Reg->updateRegister($this->rgID,3,$TotalHr);
-
-                $TotalPriceHr = $this->Reg->getTotalPriceHr() - $this->Crs->getHourPrice();
-                $this->Reg->updateRegister($this->rgID,4,$TotalPriceHr);
-
+                if($aD)
+                {
+                    $obj = new Register();
+                    $this->Reg = $obj->getOneRegister($this->rgID);
+    
+                    $TotalHr = $this->Reg->getTotalHr() - $this->Crs->getHour();
+                    $this->Reg->updateTotalOfRegister($this->rgID,3,$TotalHr);
+    
+                    $TotalPriceHr = $this->Reg->getTotalPriceHr() - $this->Crs->getHourPrice();
+                    $this->Reg->updateTotalOfRegister($this->rgID,4,$TotalPriceHr);
+                }
+                
                 $this->FileObj->remove_dataFile($Rf[$i]);
                 break;
             }
@@ -167,6 +170,31 @@ class RegisterDetails extends InID
             $this->Crs = $Obj->getOneCourse($CrsID);
         }
     }
+
+    /**
+     * Get the value of FileObj
+     */ 
+    public function getFileObj()
+    {
+        if($this->FileObj != null)
+        {
+            return $this->FileObj;
+        }
+        
+    }
+
+    /**
+     * Set the value of FileObj
+     *
+     * @return  self
+     */ 
+    public function setFileObj($FileObj)
+    {
+        if($FileObj != null)
+        {
+            $this->FileObj = $FileObj;
+        }
+    }
 }
 
 /*$rD = new RegisterDetails();
@@ -183,6 +211,8 @@ echo "<table border=1>";
 for($i=0;$i<count($obrd);$i++)
 {
     echo "<tr><td>".$obrd[$i]->ID."</td><td>".$obrd[$i]->getRgID()."</td><td>".$obrd[$i]->GetCrsID()."</td><td>".$obrd[$i]->getCrs()->getHour()."</td><td>".$obrd[$i]->getCrs()->getHourPrice()."</td></tr>";
+
+    
 }
 echo "</table>"
 */

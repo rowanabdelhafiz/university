@@ -46,17 +46,16 @@ if(isset($_POST["Search"]))
     }
 }
 if(isset($_POST["Delete"]))
-{
-    if($_POST["Id"] == null)
-    {
-        $Rg = new Register();
-        $Rg->setStID($_POST["StID"]);
-        $Rg->setDate($_POST["Date"]);
-        //$Rg->getTotalHr($_POST["TotalHr"]);
-        //$Rg->getTotalPriceHr($_POST["TotalPriceHr"]);
-        $Rg->storeRegister();
-        echo(" <script> location.replace('Register.html'); </script>");
-    }
+{ 
+    $Rg = new Register();
+    $Rg->setID($_POST["ID"]);
+    $Rg->setStID($_POST["StID"]);
+    $Rg->setDate($_POST["Date"]);
+    //$Rg->getTotalHr($_POST["TotalHr"]);
+    //$Rg->getTotalPriceHr($_POST["TotalPriceHr"]);
+    $Rg->remove_register();
+    echo(" <script> location.replace('Register.html'); </script>");
+
 }
 
 ?>

@@ -1,4 +1,2 @@
 Id~studentId~date~totalHr~totalPriceHr
 1~3~23/11/2021~9~3100
-2~6~30/5/2022~4~700
-3~2~20/5/2020~0~0

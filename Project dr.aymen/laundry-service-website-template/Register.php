@@ -99,7 +99,22 @@ class Register extends InID
         {
             $ar1 = explode($this->FileObj->getSeparator(),$Rf[$i]);
 
-            
+            if($this->ID == $ar1[0])
+            {
+                $obj = new RegisterDetails();
+                $aO = [];
+                $aO = $obj->getAllRegisterDetails();
+
+                for($j=0;$j<count($aO);$j++)
+                {
+                    if($this->ID == $aO[$j]->getRgID())
+                    {
+                        $aO[$j]->removeRegisterDetails();
+                    }
+                }
+
+                $this->FileObj->remove_dataFile($Rf[$i]);
+            }
 
             /*if($ar1[1] == $StdId)
             {
