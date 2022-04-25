@@ -44,9 +44,28 @@ class RegisterDetails extends InID
         
     }
 
-    public function removeRegisterDetails($ID)
+    public function removeRegisterDetails($ID,$pos)
     {
-        
+        $Rf = $this->FileObj->AllContents();
+        for($i=0; $i< count($Rf); $i++)
+        {
+            $ar = explode($this->FileObj->getSeparator(),$Rf[$i]);
+
+            if($ar[$pos] == $ID)
+            {
+                $obj = new Register();
+                $this->Reg = $obj->getOneRegister($this->rgID);
+
+                $TotalHr = $this->Reg->getTotalHr() - $this->Crs->getHour();
+                $this->Reg->updateRegister($this->rgID,3,$TotalHr);
+
+                $TotalPriceHr = $this->Reg->getTotalPriceHr() - $this->Crs->getHourPrice();
+                $this->Reg->updateRegister($this->rgID,4,$TotalPriceHr);
+
+                $this->FileObj->remove_dataFile($Rf[$i]);
+                break;
+            }
+        }
     }
 
     public function getAllRegisterDetails()
