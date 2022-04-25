@@ -7,7 +7,7 @@ class Course extends InID
 {
     protected $Hour = 0;
     protected $HourPrice = 0;
-    public $FileCourse;
+    private $FileCourse;
     
     public function __construct()
     {

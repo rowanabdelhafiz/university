@@ -1,13 +1,17 @@
 <?php
 
 include_once("InID.php");
+include_once("functions.php");
+include_once("Courses.php");
 
-class RegisterDetails extends InID
+class RegisterDetails extends Course
 {
-    private $rgID;
-    public $crsID;
-    public $Hr;
-    public $PriceHr;
+    private $rgID;    
+
+    function __construct()
+    {
+
+    }
 
     public function getRgID()
     {

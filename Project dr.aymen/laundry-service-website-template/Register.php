@@ -28,13 +28,10 @@ class Register extends InID
 
     function remove_register($ID)
     {
-        $fileObj = new filemanager();
-        $fileObj->setFilenames("Register.txt");
-        $fileObj->setSeparator("~");
-        $Rf = $fileObj->AllContents();
+        $Rf = $this->FileRegister->AllContents();
         for($i = 0; $i< count($Rf); $i++)
         {
-            $ar1 = explode($fileObj->getSeparator(),$Rf[$i]);
+            $ar1 = explode($this->FileRegister->getSeparator(),$Rf[$i]);
 
             /*if($ar1[1] == $StdId)
             {
