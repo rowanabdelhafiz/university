@@ -69,8 +69,8 @@ class RegisterDetails extends InID
         $RD->CrsID = $ar[2];
 
         $obj = new Course();
-        $RD->Crs = $obj->getOneCourse($this->CrsID);
-
+        $RD->Crs = $obj->getOneCourse($RD->CrsID);
+        
         return $RD;
     }
 
@@ -148,7 +148,7 @@ class RegisterDetails extends InID
 $rD = new RegisterDetails();
 $rD->setRgID(2);
 
-$rD->setCrsID(2);
+$rD->setCrsID(4);
 
 //$rD->storeRegisterDetails();
 
