@@ -19,7 +19,7 @@ class Admissions extends user
         $id=$this->filemanagerobj->getId($s)+1;
         $pass="hel".$this->getPhone_number();
         $this->setpassword($pass);
-        $record=$id.$s.$this->getUserid_type().$s.$this->getName().$s.$this->getPassword().$s.$this->getPhone_number().$s.$this->getDate_of_birthday().$s.$this->getFaculity_id().$s.$email;
+        $record=$id.$s.$this->getUserid_type().$s.$this->getName().$s.$this->getPassword().$s.$this->getPhone_number().$s.$this->getDate_of_birthday().$s.$this->getFaculity_id().$s.$email.$s;
         $this->filemanagerobj->store_dataFile($record);
     }
     public function getFaculity_id()

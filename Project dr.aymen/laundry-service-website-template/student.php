@@ -7,13 +7,11 @@ class Student
     protected $faculity=null;
     protected $gender=null;
     protected $courses=null;
-    //array
 
     public function getCreated_hour()
     {
         return $this->created_hour;
     }
-
     public function setCreated_hour($created_hour)
     {
         $this->created_hour = $created_hour;
