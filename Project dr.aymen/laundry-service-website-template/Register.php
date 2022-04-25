@@ -75,6 +75,19 @@ class Register extends InID
         }
     }
 
+    function getAllRegister()
+    {
+        $allr = [];
+        $records = $this->FileRegister->AllContents();
+
+        for($i=0; $i<count($records);$i++)
+        {
+            $ar=explode($this->FileRegister->getSeparator(),$records[$i]);
+            $allr[$i]=$this->getOneRegister($ar[0]);         
+        }
+        return $allr;
+    }
+
     function getOneRegister($ID)
     {
         $rec = $this->FileRegister->getLineByID($ID);
@@ -194,8 +207,12 @@ $r = new Register();
 //$r->setDate("3/5/2022");
 //$r->storeRegister();
 
-$rObj = $r->getOneRegister(1);
+$rObjs = $r->getAllRegister();
 
-echo $rObj->ID."</br>".$rObj->getStID()."</br>".$rObj->getDate();
-
+echo "<table border=1>";
+for($i=0;$i<count($rObjs);$i++)
+{
+    echo "<tr><td>".$rObjs[$i]->ID."</td><td>".$rObjs[$i]->getStID()."</td><td>".$rObjs[$i]->GetDate()."</td><td>".$rObjs[$i]->GetTotalHr()."</td><td>".$rObjs[$i]->getTotalPriceHr()."</td></tr>";
+}
+echo "</table>"
 ?>
