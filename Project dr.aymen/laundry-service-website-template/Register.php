@@ -83,13 +83,10 @@ class Register extends InID
 
         $r = new Register();
         $r->ID = $arr[0];
-        $r->StdID = $arr[1];
+        $r->StID = $arr[1];
         $r->Date = $arr[2];
         $r->totalHr = $arr[3];
         $r->totalPriceHr = $arr[4];
-
-        echo $r->StdID;
-        exit(0);
 
         return $r;
     }
@@ -193,11 +190,11 @@ class Register extends InID
 }
 
 $r = new Register();
-$r->setStID(2);
-$r->setDate("3/5/2022");
+//$r->setStID(6);
+//$r->setDate("3/5/2022");
 //$r->storeRegister();
 
-$rObj = $r->getOneRegister(2);
+$rObj = $r->getOneRegister(1);
 
 echo $rObj->ID."</br>".$rObj->getStID()."</br>".$rObj->getDate();
 
