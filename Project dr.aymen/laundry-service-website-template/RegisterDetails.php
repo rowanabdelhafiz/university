@@ -6,11 +6,14 @@ include_once("Courses.php");
 
 class RegisterDetails extends Course
 {
-    private $rgID;    
+    private $rgID;
+    private $Reg; 
 
     function __construct()
     {
-
+        $this->FileObj = new filemanager();
+        $this->FileObj->setFilenames("RegisterDetails.txt");
+        $this->Reg = new Register();
     }
 
     public function getRgID()
