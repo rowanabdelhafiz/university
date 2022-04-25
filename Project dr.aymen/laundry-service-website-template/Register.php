@@ -230,7 +230,7 @@ $r = new Register();
 //$r->setStID(6);
 //$r->setDate("3/5/2022");
 //$r->storeRegister();
-$r->updateRegister(1,1,3);
+//$r->updateRegister(1,1,3);
 
 $rObjs = $r->getAllRegister();
 

@@ -3,6 +3,7 @@
 include_once("InID.php");
 include_once("functions.php");
 include_once("Courses.php");
+include_once("Register.php");
 
 class RegisterDetails extends InID
 {
@@ -34,10 +35,16 @@ class RegisterDetails extends InID
             $record = $this->ID.$s.$this->rgID.$s.$this->CrsID.$s.$this->Crs->getHour().$s.$this->Crs->getHourPrice();
             $this->FileObj->store_dataFile($record);
 
-            //$this->Reg
+            $TotalHr = $this->Reg->getTotalHr() + $this->Crs->getHour();
+            $this->Reg->updateRegister($this->rgID,3,$TotalHr);
+
+            $TotalPriceHr = $this->Reg->getTotalPriceHr() + $this->Crs->getHourPrice();
+            $this->Reg->updateRegister($this->rgID,4,$TotalPriceHr);
         }
         
     }
+
+
 
     public function getRgID()
     {
@@ -113,8 +120,8 @@ class RegisterDetails extends InID
 $rD = new RegisterDetails();
 $rD->setRgID(2);
 
-$rD->setCrsID(6);
+$rD->setCrsID(2);
 
-$rD->storeRegisterDetails();
+//$rD->storeRegisterDetails();
 
 ?>
