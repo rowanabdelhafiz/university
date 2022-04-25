@@ -80,29 +80,15 @@
                 <div class="col-12">
                     <div class="contact-form">
                         <div id="success"></div>
-                        <form method="POST" action="choose_What_update.php" method="POST" class="login-email">
+                        <form method="POST" action="update_user_data.php" method="POST" class="login-email">
                             <div class="form-row">
-                                <div class="col-md-6">
-                                    <div class="control-group">
-                                        <br>
-                                        <input type="id" placeholder="Id" name="id" required class="form-control" required="required" data-validation-required-message="Please enter your id" />
-                                        <p class="help-block text-danger"></p>
-                                    </div>
-                                </div>
-                                <br>
-                                <select name="selected" class="col-md-6" style="opacity: 0.5; border-radius: 25px;"required>
-                                    <option value="1">name</option>
-                                    <option value="2">Type</option>
-                                    <option value="3">password</option>
-                                    <option value="4">phone number</option>
-                                    <option value="6">faculity</option>
-                                    <option value="7">mail</option>
+                                <select name="new_data" class="col-md-6" style="opacity: 0.5; border-radius: 25px;"required>
+                                    <option value="1">doctor</option>
+                                    <option value="2">student</option>
+                                    <option value="3">Secretary</option>
                                       </select>
-                                <br>
                             <div>
-                                <br><br>
-                                <br>
-                                <button class="btn btn-primary py-3 px-5" name="submit" class="btn"  >Enter</button>
+                                <button class="btn btn-primary py-3 px-5" name="submit" class="btn" border="0.5" >Enter</button>
                             </div>
                         </form>
                     </div>

@@ -1,6 +1,5 @@
 <?php
 include_once("functions.php");
-//include_once("login.php");
 extract($_POST);
 $object=new filemanager();
 $object->setFilenames("user.txt");
