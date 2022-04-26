@@ -25,7 +25,7 @@ class filemanager
     function store_dataFile($data)
     {
         $file=fopen($this->Filenames, "a+");
-        fwrite($file,"\r\n".$data);
+        fwrite($file,$data."\r\n");
         fclose($file);
     }
     function getids($ID)
@@ -103,15 +103,13 @@ class filemanager
         $file = fopen($this->Filenames,"r");
 
         $results = array();
-        $i=-1;
+        $i=0;
 
         while(!feof($file))
         {
             $line = fgets($file);
-            if($i != -1)
-            {
-                $results[$i] = $line;
-            }
+            $results[$i] = $line;
+            
             $i++;
         }
         return $results;

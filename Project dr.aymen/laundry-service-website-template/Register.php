@@ -32,7 +32,7 @@ class Register extends InID
     function updateRegister()
     {
         $Rec = $this->FileObj->AllContents();
-        for($i=0; $i< count($Rec);$i++)
+        for($i=0; $i< count($Rec) - 1;$i++)
         {
             $ar = explode($this->FileObj->getSeparator(),$Rec[$i]);
 
@@ -68,7 +68,7 @@ class Register extends InID
     function updateTotalOfRegister($ID, $pos, $value)
     {
         $Rec = $this->FileObj->AllContents();
-        for($i=0; $i< count($Rec);$i++)
+        for($i=0; $i< count($Rec) - 1;$i++)
         {
             $ar = explode($this->FileObj->getSeparator(),$Rec[$i]);
 
@@ -85,6 +85,7 @@ class Register extends InID
                         $nL.=$this->FileObj->getSeparator();
                     }
                 }
+                $nL.="\r\n";
 
                 $this->FileObj->update_dataFile($Rec[$i],$nL);
                 break;
@@ -95,7 +96,7 @@ class Register extends InID
     function remove_register()
     {
         $Rf = $this->FileObj->AllContents();
-        for($i = 0; $i< count($Rf); $i++)
+        for($i = 0; $i< count($Rf) - 1; $i++)
         {
             $ar1 = explode($this->FileObj->getSeparator(),$Rf[$i]);
 
@@ -122,7 +123,7 @@ class Register extends InID
     {
         $List=$this->FileObj->AllContents();
 
-        for ($i=0; $i < count($List); $i++) { 
+        for ($i=0; $i < count($List) - 1; $i++) { 
             $ar = explode($this->FileObj->getSeparator(),$List[$i]);
             if($this->ID!=0)
             {
@@ -181,7 +182,7 @@ class Register extends InID
         $allr = [];
         $records = $this->FileObj->AllContents();
 
-        for($i=0; $i<count($records);$i++)
+        for($i=0; $i<count($records) - 1;$i++)
         {
             $ar=explode($this->FileObj->getSeparator(),$records[$i]);
             $allr[$i]=$this->getOneRegister($ar[0]);         
@@ -192,31 +193,38 @@ class Register extends InID
     function getOneRegister($ID)
     {
         $rec = $this->FileObj->getLineByID($ID);
-        $arr = explode($this->FileObj->getSeparator(),$rec);
-
-
-        $r = new Register();
-        $r->ID = $arr[0];
-        $r->StID = $arr[1];
-        $r->Date = $arr[2];
-        $r->totalHr = $arr[3];
-        $r->totalPriceHr = $arr[4];
-
-        $obj = new RegisterDetails();
-        $arr2 = [];
-        $arr2 = $obj->getAllRegisterDetails();
-
-        $j=0;
-        for($i=0;$i<count($arr2);$i++)
+        if($rec != "")
         {
-            if($arr2[$i]->GetRgID() == $r->ID)
-            {
-                $r->RegisterDetails[$j] = $arr2[$i];
-                $j++;
-            }
-        }
+            $arr = explode($this->FileObj->getSeparator(),$rec);
 
-        return $r;
+
+            $r = new Register();
+            $r->ID = $arr[0];
+            $r->StID = $arr[1];
+            $r->Date = $arr[2];
+            $r->totalHr = $arr[3];
+            $r->totalPriceHr = $arr[4];
+    
+            $obj = new RegisterDetails();
+            $arr2 = [];
+            $arr2 = $obj->getAllRegisterDetails();
+    
+            $j=0;
+            for($i=0;$i<count($arr2);$i++)
+            {
+                if($arr2[$i]->GetRgID() == $r->ID)
+                {
+                    $r->RegisterDetails[$j] = $arr2[$i];
+                    $j++;
+                }
+            }
+    
+            return $r;
+        }else
+        {
+            return null;
+        }
+        
     }
 
     public function getStID()

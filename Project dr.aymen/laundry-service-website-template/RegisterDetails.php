@@ -46,7 +46,7 @@ class RegisterDetails extends InID
     public function updateRegisterDetails()
     {
         $Rec = $this->FileObj->AllContents();
-        for($i=0; $i< count($Rec);$i++)
+        for($i=0; $i< count($Rec) - 1;$i++)
         {
             $ar = explode($this->FileObj->getSeparator(),$Rec[$i]);
 
@@ -140,7 +140,7 @@ class RegisterDetails extends InID
     public function removeRegisterDetails($aD = false)
     {
         $Rf = $this->FileObj->AllContents();
-        for($i=0; $i< count($Rf); $i++)
+        for($i=0; $i< count($Rf) - 1; $i++)
         {
             $ar = explode($this->FileObj->getSeparator(),$Rf[$i]);
 
@@ -168,7 +168,7 @@ class RegisterDetails extends InID
     {
         $List=$this->FileObj->AllContents();
 
-        for ($i=0; $i < count($List); $i++) { 
+        for ($i=0; $i < count($List) - 1; $i++) { 
             $ar = explode($this->FileObj->getSeparator(),$List[$i]);
             if($this->ID!=0)
             {
@@ -211,7 +211,7 @@ class RegisterDetails extends InID
         $allrd = [];
         $records = $this->FileObj->AllContents();
 
-        for($i = 0; $i < count($records); $i++)
+        for($i = 0; $i < count($records) - 1; $i++)
         {
             $ar = explode($this->FileObj->getSeparator(),$records[$i]);
             $allrd[$i] = $this->getOneRegisterDetails($ar[0]);
