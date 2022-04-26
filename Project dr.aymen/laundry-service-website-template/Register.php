@@ -115,44 +115,65 @@ class Register extends InID
 
                 $this->FileObj->remove_dataFile($Rf[$i]);
             }
-
-            /*if($ar1[1] == $StdId)
-            {
-                $fileObj2 = new filemanager();
-                $fileObj2->setFilenames("RegisterDetails.txt");
-                $fileObj2->setSeparator("~");
-                $f2 = fopen($fileObj2->getFilenames(),"r+");
-                while(!feof($f2))
-                {
-                    $line2=fgets($f2);
-                    $ar2 = explode($fileObj2->getSeparator(),$line2);
-
-                    if($ar2[1] == $ar1[0] && $ar2[2] == $CrsId)
-                    {
-                        $ar1[3]-=$ar2[3];
-                        $ar1[4]-=$ar2[4];
-                        
-                        //function delete line in file manager from fileObj2 for RegisterDetails!!
-                        $fileObj2->remove_dataFile($line2);
-
-                        $nL="";
-                        for($i=0;$i<count($ar1);$i++)
-                        {
-                            $nL.=$ar1[$i];
-                            if($i<count($ar1)-1)
-                            {
-                                $nL.=$fileObj->getSeparator();
-                            }
-                        }
-
-                        //function update line in file manager from fileObj for RegisterDetails!!
-                        $fileObj->update_dataFile($line,$nL);
-                        break;
-                    }
-                }
-                break;
-            }*/
         }
+    }
+
+    function search_register()
+    {
+        $List=$this->FileObj->AllContents();
+
+        for ($i=0; $i < count($List); $i++) { 
+            $ar = explode($this->FileObj->getSeparator(),$List[$i]);
+            if($this->ID!=0)
+            {
+                if($this->ID!=intval($ar[0]))
+                {
+                    array_splice($List,$i,1);
+                    $i--;
+                }
+            }
+            if($this->StID!="")
+            {
+                if($this->StID!=$ar[1])
+                {
+                    array_splice($List,$i,1);
+                    $i--;
+                }
+            }
+            if($this->Date!=0)
+            {
+                if($this->Date!=intval($ar[2]))
+                {
+                    array_splice($List,$i,1);
+                    $i--;
+                }
+            }
+            if($this->totalHr!=0)
+            {
+                if($this->totalHr!=intval($ar[3]))
+                {
+                    array_splice($List,$i,1);
+                    $i--;
+                }
+            }
+            if($this->totalPriceHr!=0)
+            {
+                if($this->totalPriceHr!=intval($ar[4]))
+                {
+                    array_splice($List,$i,1);
+                    $i--;
+                }
+            }
+        }
+        
+        $DisplayedList = [];
+        $Header = ["ID","StID","Date","totalHr","totalPriceHr"];
+        array_push($DisplayedList,$Header);
+        for ($i=0; $i < count($List); $i++) { 
+            $ar = explode($this->FileObj->getSeparator(),$List[$i]);
+           array_push($DisplayedList,$ar);
+        }
+        return $DisplayedList;
     }
 
     function getAllRegister()
