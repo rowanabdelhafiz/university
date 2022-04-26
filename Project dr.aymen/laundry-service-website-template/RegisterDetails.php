@@ -43,6 +43,71 @@ class RegisterDetails extends InID
         }
     }
 
+    public function updateRegisterDetails()
+    {
+        $Rec = $this->FileObj->AllContents();
+        for($i=0; $i< count($Rec);$i++)
+        {
+            $ar = explode($this->FileObj->getSeparator(),$Rec[$i]);
+
+            if($this->ID == $ar[0])
+            {
+                if($this->rgID != "")
+                {
+                    $obj = new Register();
+                    $this->Reg = $obj->getOneRegister($ar[1]);
+    
+                    $TotalHr = $this->Reg->getTotalHr() - $ar[3];
+                    $this->Reg->updateTotalOfRegister($ar[1],3,$TotalHr);
+    
+                    $TotalPriceHr = $this->Reg->getTotalPriceHr() - $ar[4];
+
+                    if($ar[1] != $this->FileObj->getId())
+                    {
+                        $TotalPriceHr.="\r\n";
+                    }
+                    $this->Reg->updateTotalOfRegister($ar[1],4,$TotalPriceHr);
+
+                    $this->Reg = $obj->getOneRegister($this->rgID);
+    
+                    $TotalHr = $this->Reg->getTotalHr() + $ar[3];
+                    $this->Reg->updateTotalOfRegister($this->rgID,3,$TotalHr);
+    
+                    if($this->rgID != $this->FileObj->getId())
+                    {
+                        $TotalPriceHr.="\r\n";
+                    }
+
+                    $TotalPriceHr = $this->Reg->getTotalPriceHr() + $ar[4];
+                    $this->Reg->updateTotalOfRegister($this->rgID,4,$TotalPriceHr);
+
+                    $ar[1] = $this->rgID;
+                }
+
+                if($this->CrsID != "")
+                {
+
+
+                    $ar[2] = $this->Date;
+                }
+
+
+                $nL ="";
+                for($j=0;$j< count($ar); $j++)
+                {
+                    $nL.=$ar[$j];
+                    if($j < count($ar) - 1)
+                    {
+                        $nL.=$this->FileObj->getSeparator();
+                    }
+                }
+
+                $this->FileObj->update_dataFile($Rec[$i],$nL);
+                break;
+            }
+        }
+    }
+
     public function removeRegisterDetails($aD = false)
     {
         $Rf = $this->FileObj->AllContents();

@@ -25,7 +25,7 @@ if(isset($_POST["Update"]))
     $Rd->setID($_POST["ID"]);
     $Rd->setRgID($_POST["rgID"]);
     $Rd->setCrsID($_POST["CrsID"]);
-    $Rd->storeRegisterDetails();
+    $Rd->updateRegisterDetails();
     echo(" <script> location.replace('RegisterDetails.html'); </script>");
 
 }
