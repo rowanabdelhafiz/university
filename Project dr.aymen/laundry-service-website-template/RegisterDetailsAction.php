@@ -1,7 +1,7 @@
 <?php
 
-include_once("Register.php");
-include_once("Register.html");
+include_once("RegisterDetails.php");
+include_once("RegisterDetails.html");
 
 if(isset($_POST["Store"]))
 {
@@ -9,25 +9,24 @@ if(isset($_POST["Store"]))
     {
         $Rd = new RegisterDetails();
         $Rd->setRgID($_POST["rgID"]);
-        $Rd->setCrsID($_POST["Date"]);
-        $Rd->getCrs()->setHour($_POST["Hour"]);
-        $Rd->getCrs()->setHourPrice($_POST["HourPrice"]);
+        $Rd->setCrsID($_POST["CrsID"]);
         $Rd->storeRegisterDetails();
     }else
     {
         echo("Not adding");
     }
-    echo(" <script> location.replace('Register.html'); </script>");
+    exit(0);
+    echo(" <script> location.replace('RegisterDetails.html'); </script>");
 }
 if(isset($_POST["Update"]))
 {
 
-        $Rg = new Register();
-        $Rg->setID($_POST["ID"]);
-        $Rg->setStID($_POST["StID"]);
-        $Rg->setDate($_POST["Date"]);
-        $Rg->updateRegister();
-        echo(" <script> location.replace('Register.html'); </script>");
+    $Rd = new RegisterDetails();
+    $Rd->setID($_POST["ID"]);
+    $Rd->setRgID($_POST["rgID"]);
+    $Rd->setCrsID($_POST["CrsID"]);
+    $Rd->storeRegisterDetails();
+    echo(" <script> location.replace('RegisterDetails.html'); </script>");
 
 }
 if(isset($_POST["Search"]))
@@ -39,7 +38,7 @@ if(isset($_POST["Search"]))
     $Rg->setDate($_POST["Date"]);
     $List = $Rg->search_register();
     DisplayTable($List);
-    echo "<br><a href='Register.html'>Return To Menu</a> ";
+    echo "<br><a href='RegisterDetails.html'>Return To Menu</a> ";
         
 }
 if(isset($_POST["Delete"]))
@@ -49,7 +48,7 @@ if(isset($_POST["Delete"]))
     $Rg->setStID($_POST["StID"]);
     $Rg->setDate($_POST["Date"]);
     $Rg->remove_register();
-    echo(" <script> location.replace('Register.html'); </script>");
+    echo(" <script> location.replace('RegisterDetails.html'); </script>");
 
 }
 

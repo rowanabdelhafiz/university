@@ -36,12 +36,11 @@ class RegisterDetails extends InID
             $this->FileObj->store_dataFile($record);
 
             $TotalHr = $this->Reg->getTotalHr() + $this->Crs->getHour();
-            $this->Reg->updateRegister($this->rgID,3,$TotalHr);
+            $this->Reg->updateTotalOfRegister($this->rgID,3,$TotalHr);
 
             $TotalPriceHr = $this->Reg->getTotalPriceHr() + $this->Crs->getHourPrice();
-            $this->Reg->updateRegister($this->rgID,4,$TotalPriceHr);
+            $this->Reg->updateTotalOfRegister($this->rgID,4,$TotalPriceHr);
         }
-        
     }
 
     public function removeRegisterDetails($aD = false)
