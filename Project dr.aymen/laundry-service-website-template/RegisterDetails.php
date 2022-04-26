@@ -87,7 +87,35 @@ class RegisterDetails extends InID
 
                 if($this->CrsID != "")
                 {
-                    
+                    $obj = new Register();
+                    $this->Reg = $obj->getOneRegister($ar[1]);
+                    $TotalHr = $this->Reg->getTotalHr();
+
+                    if($this->Crs->getHour() > $ar[3])
+                    {
+                        $TotalHr = $TotalHr + ($this->Crs->getHour() - $ar[3]);
+                    }
+                    else if($this->Crs->getHour() < $ar[3])
+                    {
+                        $TotalHr = $TotalHr - ($ar[3] - $this->Crs->getHour());
+                    }
+
+                    $ar[3]=$this->Crs->getHour();
+                    $this->Reg->updateTotalOfRegister($ar[1],3,$TotalHr);
+
+                    $TotalPriceHr = $this->Reg->getTotalPriceHr();
+
+                    if($this->Crs->getHourPrice() > $ar[4])
+                    {
+                        $TotalPriceHr = $TotalPriceHr + ($this->Crs->getHourPrice() - $ar[4]);
+                    }
+                    else if($this->Crs->getHourPrice() < $ar[4])
+                    {
+                        $TotalPriceHr = $TotalPriceHr - ($ar[4] - $this->Crs->getHourPrice());
+                    }
+
+                    $ar[4]=$this->Crs->getHourPrice();
+                    $this->Reg->updateTotalOfRegister($ar[1],4,$TotalPriceHr);
 
                     $ar[2] = $this->CrsID;
                 }
