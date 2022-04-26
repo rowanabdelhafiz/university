@@ -173,5 +173,21 @@ class filemanager
     }
 }
 
-
+function DisplayTable($List)
+{
+    echo "<table border=1>";
+    for ($i=0; $i < count($List); $i++) { 
+        echo "<tr>";
+        for ($j=0; $j < count($List[$i]); $j++) { 
+            if($i == 0) {
+                echo "<th>".$List[$i][$j]."</th>";
+            }
+            else {
+                echo "<td>".$List[$i][$j]."</td>";
+            }
+        }
+        echo "</tr>";
+    }
+    echo"</table>";
+}
 ?>
