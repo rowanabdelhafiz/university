@@ -132,17 +132,17 @@ class Register extends InID
                     $i--;
                 }
             }
-            if($this->StID!="")
+            if($this->StID!=0)
             {
-                if($this->StID!=$ar[1])
+                if($this->StID!=intval($ar[1]))
                 {
                     array_splice($List,$i,1);
                     $i--;
                 }
             }
-            if($this->Date!=0)
+            if($this->Date!= "")
             {
-                if($this->Date!=intval($ar[2]))
+                if($this->Date!= $ar[2])
                 {
                     array_splice($List,$i,1);
                     $i--;

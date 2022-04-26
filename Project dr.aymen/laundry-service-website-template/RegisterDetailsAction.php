@@ -35,8 +35,8 @@ if(isset($_POST["Search"]))
     $Rd->setID($_POST["ID"]);
     $Rd->setRgID($_POST["rgID"]);
     $Rd->setCrsID($_POST["CrsID"]);
-    $Rd->updateRegisterDetails();
-    $List = $Rg->search_register();
+    
+    $List = $Rd->searchRegisterDetails();;
     DisplayTable($List);
     echo "<br><a href='RegisterDetails.html'>Return To Menu</a> ";
         

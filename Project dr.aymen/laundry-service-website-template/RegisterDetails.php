@@ -136,6 +136,48 @@ class RegisterDetails extends InID
         }
     }
 
+    public function searchRegisterDetails()
+    {
+        $List=$this->FileObj->AllContents();
+
+        for ($i=0; $i < count($List); $i++) { 
+            $ar = explode($this->FileObj->getSeparator(),$List[$i]);
+            if($this->ID!=0)
+            {
+                if($this->ID!=intval($ar[0]))
+                {
+                    array_splice($List,$i,1);
+                    $i--;
+                }
+            }
+            if($this->rgID!=0)
+            {
+                if($this->rgID!=intval($ar[1]))
+                {
+                    array_splice($List,$i,1);
+                    $i--;
+                }
+            }
+            if($this->CrsID!=0)
+            {
+                if($this->CrsID!=intval($ar[2]))
+                {
+                    array_splice($List,$i,1);
+                    $i--;
+                }
+            }
+        }
+        
+        $DisplayedList = [];
+        $Header = ["ID","rgID","CrsID","Hour","HourPrice"];
+        array_push($DisplayedList,$Header);
+        for ($i=0; $i < count($List); $i++) { 
+            $ar = explode($this->FileObj->getSeparator(),$List[$i]);
+           array_push($DisplayedList,$ar);
+        }
+        return $DisplayedList;
+    }
+
     public function getAllRegisterDetails()
     {
         $allrd = [];
