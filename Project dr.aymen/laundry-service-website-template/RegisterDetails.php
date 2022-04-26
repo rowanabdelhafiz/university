@@ -66,6 +66,7 @@ class RegisterDetails extends InID
                     {
                         $TotalPriceHr.="\r\n";
                     }
+                    
                     $this->Reg->updateTotalOfRegister($ar[1],4,$TotalPriceHr);
 
                     $this->Reg = $obj->getOneRegister($this->rgID);
@@ -86,9 +87,9 @@ class RegisterDetails extends InID
 
                 if($this->CrsID != "")
                 {
+                    
 
-
-                    $ar[2] = $this->Date;
+                    $ar[2] = $this->CrsID;
                 }
 
 
@@ -120,13 +121,13 @@ class RegisterDetails extends InID
                 if($aD)
                 {
                     $obj = new Register();
-                    $this->Reg = $obj->getOneRegister($this->rgID);
+                    $this->Reg = $obj->getOneRegister($ar[1]);
     
-                    $TotalHr = $this->Reg->getTotalHr() - $this->Crs->getHour();
-                    $this->Reg->updateTotalOfRegister($this->rgID,3,$TotalHr);
+                    $TotalHr = $this->Reg->getTotalHr() - $ar[3];
+                    $this->Reg->updateTotalOfRegister($ar[1],3,$TotalHr);
     
-                    $TotalPriceHr = $this->Reg->getTotalPriceHr() - $this->Crs->getHourPrice();
-                    $this->Reg->updateTotalOfRegister($this->rgID,4,$TotalPriceHr);
+                    $TotalPriceHr = $this->Reg->getTotalPriceHr() - $ar[4];
+                    $this->Reg->updateTotalOfRegister($ar[1],4,$TotalPriceHr);
                 }
                 
                 $this->FileObj->remove_dataFile($Rf[$i]);

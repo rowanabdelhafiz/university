@@ -31,11 +31,11 @@ if(isset($_POST["Update"]))
 }
 if(isset($_POST["Search"]))
 {
-
-    $Rg = new Register();
-    $Rg->setID($_POST["ID"]);
-    $Rg->setStID($_POST["StID"]);
-    $Rg->setDate($_POST["Date"]);
+    $Rd = new RegisterDetails();
+    $Rd->setID($_POST["ID"]);
+    $Rd->setRgID($_POST["rgID"]);
+    $Rd->setCrsID($_POST["CrsID"]);
+    $Rd->updateRegisterDetails();
     $List = $Rg->search_register();
     DisplayTable($List);
     echo "<br><a href='RegisterDetails.html'>Return To Menu</a> ";
@@ -43,11 +43,11 @@ if(isset($_POST["Search"]))
 }
 if(isset($_POST["Delete"]))
 { 
-    $Rg = new Register();
-    $Rg->setID($_POST["ID"]);
-    $Rg->setStID($_POST["StID"]);
-    $Rg->setDate($_POST["Date"]);
-    $Rg->remove_register();
+    $Rd = new RegisterDetails();
+    $Rd->setID($_POST["ID"]);
+    $Rd->setRgID($_POST["rgID"]);
+    $Rd->setCrsID($_POST["CrsID"]);
+    $Rd->removeRegisterDetails(true);
     echo(" <script> location.replace('RegisterDetails.html'); </script>");
 
 }
