@@ -1,9 +1,0 @@
-1~engineering~80~
-2~computer science~70~
-3~biotecnology~70~
-4~dentist~90~
-5~masscom~60~
-6~bussiness~65~
-7~pharmacy~90~
-8~art&design~70~
-9~languages~60~
